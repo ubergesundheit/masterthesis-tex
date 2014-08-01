@@ -127,28 +127,62 @@ Evaluation\dots
 
 \subsubsection{DialogMap}
 
-In order to test the initial idea of supporting public deliberation through spatially enhanced dialogues, a working prototype had to be developed.
+In order to test the initial idea of supporting public deliberation through spatially enhanced dialogues, a working prototype had to be developed. 
 
-Developed with potential users.
-
-Input and opinions on features
+Input and opinions from potential users with specific use cast in the future.
 
 
 
-\subsubsection{Design decisions}
+
+\subsubsection{Design decisions} % and features
 
 As seen in X,Y and Z, important aspects of A are\dots
+
+\begin{itemize}
+\item Map view with sidebar on right hand side
+\item Two way highlighting between contributions in sidebar and features on map
+\item Creation of Topic with \begin{itemize}
+    \item Title
+    \item Category/ies \begin{itemize}
+        \item in this specific case for two dimensions \begin{itemize}
+            \item Color
+            \item Icon
+            \end{itemize}
+        \end{itemize}
+    \item Tags
+    \item Time limit
+    \item Image
+    \item Special Description field which allows to create \begin{itemize}
+        \item Points and Polygons
+        \item References to existing Points and Polygons
+        \item Hyperlinks
+        \end{itemize}
+    \end{itemize}
+\item Sorting
+\item Filter \begin{itemize}
+    \item Fulltext
+    \item Categories
+    \item Tags
+    \item Time
+\end{itemize}
+\item Favorites
+\item Register/Sign in \begin{itemize}
+    \item with Google,Facebook, Twitter
+    \end{itemize}
+\end{itemize}
+
 
 \subsubsection{Implementation}
 \textit{DialogMap} has been implemented as a single-page web application using AngularJS\footnote{\url{http://angularjs.org/}} and Ruby on Rails\footnote{\url{http://rubyonrails.org/}}. The single-page structure was chosen in order to provide the user with a clear navigation between the overview and contribution answers. This also allows for a seamless browsing experience without full reloads of the page. AngularJS is a JavaScript framework with features like templating, two-way binding and DOM manipulation. It follows the model-view-controller pattern in order to bring server side paradigms to client-side development. AngularJS was chosen because of its popularity, extensibility and high number of available libraries. It also enables to wrap existing JavaScript libraries to be used in AngularJS context.\\
 The mapping library Leaflet\footnote{\url{http://leafletjs.com/}} serves as base for displaying base maps and geospatial data. The user-facing web page was developed using tools like CoffeeScript\footnote{\url{http://coffeescript.org/}}, Haml\footnote{\url{http://haml.info/}} and Sass\footnote{\url{http://sass-lang.com/}} to speed up the development. The web page was developed with all major browsers in mind.\\
 On the server side, components were developed using the Ruby on Rails framework with PostgreSQL\footnote{\url{http://www.postgresql.org/}}/PostGIS\footnote{\url{http://postgis.net/}} as data storage. Ruby on Rails, originally a full-stack model-view-controller web framework, is used as a JSON serving application logic. It was chosen because of its maturity and high number of available libraries. Front- and backend of the application communicate in REST\footnote{Representational State Transfer}-API\footnote{Application programming interface} like manner. This allows for easily replaceable front- and backend application stacks.\\
+Figure \ref{fig:screenshot} shows the web page with an active two way highlight.\\
 Without the extensive use of open source software and code, development would have taken much longer. It is planned to release the source code through github\footnote{\url{https://github.com/ubergesundheit/dialogmap}}.
 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.9\columnwidth]{screenshot}
-\caption{Screenshot of the ``Nachhaltigkeits}
+\caption{Screenshot of the \textit{DialogMap} with active highlight of a contribution and spatial feature.}
 \label{fig:screenshot}
 \end{figure}
 
