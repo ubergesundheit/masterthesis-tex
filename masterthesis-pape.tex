@@ -138,7 +138,10 @@ Input and opinions from potential users with specific use cast in the future.
 
 As seen in X,Y and Z, important aspects of A are\dots
 
-The main view of the developed system puts a map side with a right hand sidebar containing 
+Internally, the application uses few data models. Contributions contain a title, description, two categories, a tags field, an optional time restriction field for start and ending times, an optional reference to a parent contribution and optional references to child contributions. The parent and child contribution references create a simple parent-child connection between contributions, as children inherit the categories, tags, time restriction and title. A contribution serves both as a topic and response to a topic. A contribution also contains references to features, references to features and references to URLs. Features are geospatial entities with a spatial location, a reference to its contribution and properties for styling\footnote{\url{https://github.com/mapbox/simplestyle-spec}}. Feature references contain a description of the featurea and the reference to a feature. URL references contain hyperlinks and a description of the hyperlink. The description of a contribution is a  Users can create contributions in the manner of creating topics or writing responses to existing topics.
+
+
+The main view of the developed system puts a map side with a right hand sidebar containing the input form for new contributions, filter, sorting order selector and a list of contributions. The list of contributions is realized as a rectangular box containing the title, time of writing, name of the author, categories, tags, times favorited by users and a link to show and write answers. A click on the contributions expands the description of the current initial contribution.
 
 \begin{itemize}
 \item Map view with sidebar on right hand side
