@@ -109,7 +109,11 @@ swaghetti yolonaise
 
 \section{Introduction}
 
-Interactivity and collaboration are core characteristics of Web 2.0 applications. Since their first appearance, these applications utilized t
+%Interactivity and collaboration are core characteristics of Web 2.0 applications. Since their first appearance, some of these applications worked with geospatialdata in order to gather,
+Public deliberation 
+The rise of 
+Today, modern information technologies are ubiquitous in many aspects of public 
+Involving citizens in decision processes around public matters through modern information technologies is a key characteristic of 
 
 
 \section{Related Work}
@@ -129,19 +133,19 @@ Evaluation\dots
 
 \subsubsection{DialogMap}
 
-In order to test the initial idea of supporting public deliberation through spatially enhanced dialogues, a working prototype had to be developed. Starting from an initial survey of existing research, a first prototypical application was developed. This prototype was then extended and refined with practical advice from members of a scientific citizens' initiative. Their input ranged from general suggestions to opinions of specific features.
+In order to test the initial idea of supporting public deliberation through spatially enhanced dialogues, a working prototype had to be developed. Starting from an initial survey of existing research, a first prototypical application was developed. This prototype was then extended and refined with practical advice from members of a scientific citizens' initiative. Their input ranged from general suggestions to opinions of specific features. This chapter will give some details of design and implementation of the developed developed.
 
 
 \subsubsection{Design decisions} % and features
 
 As seen in X,Y and Z, important aspects of A are\dots
 
-Internally, the application uses few data models. Contributions contain a title, description, two categories, a tags field, a favored counter, an optional time restriction field for start and ending times, an optional image, an optional reference to a parent contribution and optional references to child contributions. The parent and child contribution references create a simple parent-child connection between contributions, as children inherit the categories, tags, time restriction and title. A contribution serves both as a topic and as response to a topic. A contribution also contains references to features, references to features and references to URLs.\\
+Internally, the prototype uses few data models. Contributions contain a title, description, two categories, a tags field, a favored counter, an optional time restriction field for start and ending times, an optional image, an optional reference to a parent contribution and optional references to child contributions. The parent and child contribution references create a simple parent-child connection between contributions, as children inherit the categories, tags, time restriction and title. A contribution serves both as a topic and as response to a topic. A contribution also contains references to features, references to features and references to URLs.\\
 Features are geospatial entities with a spatial location, a reference to its contribution and properties for styling\footnote{\url{https://github.com/mapbox/simplestyle-spec}}.\\
 Feature references contain a description of the featurea and the reference to a feature. URL references contain hyperlinks and a description of the hyperlink. The description of a contribution contains the text typed by a user with specially encoded references to features, URL references and feature references.\\
 After signing in, users can create contributions in the manner of creating topics or writing responses to existing topics. Users have an e-mail address and a name.
 
-The front page of the application puts a map side by side with a sidebar at right hand side containing from top to bottom the input form for new contributions, filter options, sorting order selector and a list of contributions. The input form consists of input fields for title, categories, time restriction, image and description. The description field allows the creation of spatial features and URL/feature references through connecting words with spatial representations or URLs.\\
+The front page of the prototype puts a map side by side with a sidebar at right hand side containing from top to bottom the input form for new contributions, filter options, sorting order selector and a list of contributions. The input form consists of input fields for title, categories, time restriction, image and description. The description field allows the creation of spatial features and URL/feature references through connecting words with spatial representations or URLs.\\
 A free text input field and multiple checkboxes allow to restrict the listed contribution as well as the geo-features displayed in the map. It is also possible to change the order of the list of contribution through a drop down field.\\
 The list of contributions contains colored rectangles representing the different topics. Each box contains the title, time of writing, name of the author, categories, tags and the amount of times the contribution has been favored by users. It also contains a link which navigates to the replies written to the topic. A click on the contribution box expands it, revealing the description of the current topic.\\
 After clicking the ``reply'' link, only the selected topic and replies are shown in the sidebar in a chronological order. In this view, each contribution shows the description by default as well as author and time and date of writing. The author of the contribution is able to edit the contribution. Other users are able to favor the contribution to show interest or agreement.\\
@@ -149,45 +153,45 @@ The map view contains a base map and several markers and polygons in different c
 To emphasize the relationship between a contribution and its spatial features, a two way highlighting has been implemented. Hovering over either a contribution-box, marked word or spatial feature on the map triggers visual highlighting on all related contributions, marked words and spatial features. This allows to quickly grasp the relationship between features and contributions.\\
 Users are able to use either traditional sing-up/sign-in methods or social sign-in through different providers to authenticate to the system.
 
-\begin{itemize}
-\item Map view with sidebar on right hand side
-\item Two way highlighting between contributions in sidebar and features on map
-\item Creation of Topic with \begin{itemize}
-    \item Title
-    \item Category/ies \begin{itemize}
-        \item in this specific case for two dimensions \begin{itemize}
-            \item Color
-            \item Icon
-            \end{itemize}
-        \end{itemize}
-    \item Tags
-    \item Time limit
-    \item Image
-    \item Special Description field which allows to create \begin{itemize}
-        \item Points and Polygons
-        \item References to existing Points and Polygons
-        \item Hyperlinks
-        \end{itemize}
-    \end{itemize}
-\item Sorting
-\item Filter \begin{itemize}
-    \item Fulltext
-    \item Categories
-    \item Tags
-    \item Time
-\end{itemize}
-\item Favorites
-\item Register/Sign in \begin{itemize}
-    \item with Google,Facebook, Twitter
-    \end{itemize}
-\end{itemize}
+% \begin{itemize}
+% \item Map view with sidebar on right hand side
+% \item Two way highlighting between contributions in sidebar and features on map
+% \item Creation of Topic with \begin{itemize}
+%     \item Title
+%     \item Category/ies \begin{itemize}
+%         \item in this specific case for two dimensions \begin{itemize}
+%             \item Color
+%             \item Icon
+%             \end{itemize}
+%         \end{itemize}
+%     \item Tags
+%     \item Time limit
+%     \item Image
+%     \item Special Description field which allows to create \begin{itemize}
+%         \item Points and Polygons
+%         \item References to existing Points and Polygons
+%         \item Hyperlinks
+%         \end{itemize}
+%     \end{itemize}
+% \item Sorting
+% \item Filter \begin{itemize}
+%     \item Fulltext
+%     \item Categories
+%     \item Tags
+%     \item Time
+% \end{itemize}
+% \item Favorites
+% \item Register/Sign in \begin{itemize}
+%     \item with Google,Facebook, Twitter
+%     \end{itemize}
+% \end{itemize}
 
 
 \subsubsection{Implementation}
 \textit{DialogMap} has been implemented as a single-page web application using AngularJS\footnote{\url{http://angularjs.org/}} and Ruby on Rails\footnote{\url{http://rubyonrails.org/}}. The single-page structure was chosen in order to provide the user with a clear navigation between the overview and contribution answers. This also allows for a seamless browsing experience without full reloads of the page. AngularJS is a JavaScript framework with features like templating, two-way binding and DOM manipulation. It follows the model-view-controller pattern in order to bring server side paradigms to client-side development. AngularJS was chosen because of its popularity, extensibility and high number of available libraries. It also enables to wrap existing JavaScript libraries to be used in AngularJS context.\\
 The mapping library Leaflet\footnote{\url{http://leafletjs.com/}} serves as base for displaying base maps and geospatial data. The user-facing web page was developed using tools like CoffeeScript\footnote{\url{http://coffeescript.org/}}, Haml\footnote{\url{http://haml.info/}} and Sass\footnote{\url{http://sass-lang.com/}} to speed up the development. The web page was developed with all major browsers in mind.\\
-On the server side, components were developed using the Ruby on Rails framework with PostgreSQL\footnote{\url{http://www.postgresql.org/}}/PostGIS\footnote{\url{http://postgis.net/}} as data storage. Ruby on Rails, originally a full-stack model-view-controller web framework, is used as a JSON serving application logic. It was chosen because of its maturity and high number of available libraries. Front- and backend of the application communicate in REST\footnote{Representational State Transfer}-API\footnote{Application programming interface} like manner. This allows for easily replaceable front- and backend application stacks.\\
-Figure \ref{fig:screenshot} shows the front page of the application with an active two way highlight.\\
+On the server side, components were developed using the Ruby on Rails framework with PostgreSQL\footnote{\url{http://www.postgresql.org/}}/PostGIS\footnote{\url{http://postgis.net/}} as data storage. Ruby on Rails, originally a full-stack model-view-controller web framework, is used as a JSON serving application logic. It was chosen because of its maturity and high number of available libraries. Front- and backend of the prototype communicate in REST\footnote{Representational State Transfer}-API\footnote{Application programming interface} like manner. This allows for easily replaceable front- and backend application stacks.\\
+Figure \ref{fig:screenshot} shows the front page of the prototype with an active two way highlight.\\
 Without the extensive use of open source software and code, development would have taken much longer. It is planned to release the source code through github\footnote{\url{https://github.com/ubergesundheit/dialogmap}}.
 
 \begin{figure}[!h]
@@ -210,7 +214,7 @@ Results
 
 \section{Conclusion}
 
-This work discusses the implementation and pre-evaluation of an application to support public deliberation through spatially enhanced dialogues.
+This work discusses the implementation and pre-evaluation of an prototype to support public deliberation through spatially enhanced dialogues.
 
 \subsubsection{Future Work}
 Pick up shortcomings emerged during evaluation. Point to solutions...
