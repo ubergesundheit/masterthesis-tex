@@ -26,7 +26,8 @@
 
 \usepackage{pdflscape}
 \usepackage{longtable}
-\usepackage{geometry}
+% \usepackage{geometry}
+\usepackage[strict]{changepage}
 
 
 % llt: Define a global style for URLs, rather that the default one
@@ -282,28 +283,39 @@ Legal implications of running such a website have to be explored.
 \bibliography{masterthesis-pape}
 
 
-% \clearpage
-% \newpage
-% \onecolumn
+\clearpage
+\newpage
+\onecolumn
 
-% \begin{landscape}
-% %\newgeometry{left=1cm,bottom=1cm,top=1cm,right=1cm}
-% %\section{Appendix A. Semi-Structured Interview and Focus Group Guidelines}
+\begin{landscape}
 
 
-% % \begin{longtable}{|p{6.7cm}|p{6.7cm}|p{6.7cm}|p{6.7cm}|}
-% %  \hline
-% %  Linksbündige Spalte.&Rechtsbündige Spalte&Zentrierte Spalte&Parbox\\
-% %  \hline
-% %  Kurzer Text.&Kurzer Text.&Kurzer Text.&Kurzer Text.\\
-% %  \hline
-% %  Text.&Text.&Text.&In diesem Felde nun ein elendslanger text, um Umbrüche innerhalb eines Feldes zu erzeugen.\\
-% %  \hline
-% %  Text.&Text.&Text.&der Befehl $\backslash$vspace*\{\} weiter oben im Quellcode hat einen Umbruch vor dieser Zeile bewirkt.\\
-% %  \hline
-% %  \end{longtable}
+\section{Appendix A. Semi-Structured Interview and Focus Group Guidelines}
+
+\begin{adjustwidth}{-8em}{-8em}
+\begin{longtable}{|p{6.45cm}|p{6.45cm}|p{6.45cm}|p{6.45cm}|}
+ \hline
+ \textbf{Leitfrage (Erzählaufforderung)}&\textbf{Check -- Wurde das erwähnt? Memo für mögliche Nachfragen -- nur stellen wenn nicht von allein angesprochen! Formulierung anpassen}&\textbf{Konkrete Fragen - bitte an passender Stelle (auch am Ende möglich) in dieser Formulierung stellen}&\textbf{Aufrechterhaltungs- und Steuerungsfragen}\\
+ \hline
+ \multicolumn{4}{|l|}{Teil 1 -- Bürgerbeteiligung}\\
+ \hline
  
+ Erza"hlen Sie mir über ihre Rolle und Aufgaben in Bürgerbeteiligung & yolo
+ 
+%  \begin{itemize}
+%     \item Wie lange aktiv (Befragter, Projekt)
+%     \item ``Organisator'' oder ``Ausführender an der Basis''
+%  \end{itemize}
+ 
+& & \\
+ \hline
+ Text.&Text.&Text.&In diesem Felde nun ein elendslanger text, um Umbrüche innerhalb eines Feldes zu erzeugen.\\
+ \hline
+ Text.&Text.&Text.&der Befehl $\backslash$vspace*\{\} weiter oben im Quellcode hat einen Umbruch vor dieser Zeile bewirkt.\\
+ \hline
+ \end{longtable}
+\end{adjustwidth}
 
-% \end{landscape}
+\end{landscape}
 
 \end{document}
