@@ -24,7 +24,7 @@
 \usepackage{url}      % llt: nicely formatted URLs
 \usepackage{color}
 
-\usepackage{rotating}
+\usepackage{pdflscape}
 \usepackage{longtable}
 
 
@@ -65,6 +65,8 @@ breaklinks=true,
 % create a shortcut to typeset table headings
 \newcommand\tabhead[1]{\small\textbf{#1}}
 
+\pdfcompresslevel=9
+\pdfobjcompresslevel=3
 
 % End of preamble. Here it comes the document.
 \begin{document}
@@ -279,14 +281,15 @@ Legal implications of running such a website have to be explored.
 \bibliography{masterthesis-pape}
 
 
-\clearpage
+%\clearpage
 \newpage
-\appendix
-\onecloumn
+\onecolumn
 
+\begin{landscape}
 
+\section{Appendix A. Semi-Structured Interview and Focus Group Guidelines}
 
-\begin{longtable}{|l|r|c|p{2cm}|}
+\begin{longtable}{|p{7cm}|p{7cm}|p{7cm}|p{7cm}|}
  \hline
  Linksbündige Spalte.&Rechtsbündige Spalte&Zentrierte Spalte&Parbox\\
  \hline
@@ -297,5 +300,8 @@ Legal implications of running such a website have to be explored.
  Text.&Text.&Text.&der Befehl $\backslash$vspace*\{\} weiter oben im Quellcode hat einen Umbruch vor dieser Zeile bewirkt.\\
  \hline
  \end{longtable}
+ 
+
+\end{landscape}
 
 \end{document}
