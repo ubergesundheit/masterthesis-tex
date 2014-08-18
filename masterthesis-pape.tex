@@ -24,6 +24,9 @@
 \usepackage{url}      % llt: nicely formatted URLs
 \usepackage{color}
 
+\usepackage{rotating}
+\usepackage{longtable}
+
 
 % llt: Define a global style for URLs, rather that the default one
 \makeatletter
@@ -199,6 +202,8 @@ Without the extensive use of open source software and code, development would ha
 
 \section{Evaluation}
 
+
+
 Interviews
 
 Utility evaluation
@@ -272,4 +277,25 @@ Legal implications of running such a website have to be explored.
 
 \bibliographystyle{acm-sigchi}
 \bibliography{masterthesis-pape}
+
+
+\clearpage
+\newpage
+\appendix
+\onecloumn
+
+
+
+\begin{longtable}{|l|r|c|p{2cm}|}
+ \hline
+ Linksbündige Spalte.&Rechtsbündige Spalte&Zentrierte Spalte&Parbox\\
+ \hline
+ Kurzer Text.&Kurzer Text.&Kurzer Text.&Kurzer Text.\\
+ \hline
+ Text.&Text.&Text.&In diesem Felde nun ein elendslanger text, um Umbrüche innerhalb eines Feldes zu erzeugen.\\
+ \hline
+ Text.&Text.&Text.&der Befehl $\backslash$vspace*\{\} weiter oben im Quellcode hat einen Umbruch vor dieser Zeile bewirkt.\\
+ \hline
+ \end{longtable}
+
 \end{document}
