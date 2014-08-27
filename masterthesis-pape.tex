@@ -30,7 +30,6 @@
 \usepackage[strict]{changepage}
 \usepackage{german}
 
-
 % llt: Define a global style for URLs, rather that the default one
 \makeatletter
 \def\url@leostyle{%
@@ -145,9 +144,14 @@ As seen in X,Y and Z, important aspects of A are\dots
 Internally, the prototype uses few data models. Contributions contain a title, description, two categories, a tags field, a favored counter, an optional time restriction field for start and ending times, an optional image, an optional reference to a parent contribution and optional references to child contributions. The parent and child contribution references create a simple parent-child connection between contributions, as children inherit the categories, tags, time restriction and title. A contribution serves both as a topic and as response to a topic. A contribution also contains references to features, references to feature references and references to URLs.\\
 Features are geospatial entities with a location, a reference to its contribution and properties for styling\footnote{\url{https://github.com/mapbox/simplestyle-spec}}.\\
 Feature references contain a title, which can differ from the original title of the feature and a reference to a feature. URL references contain hyperlinks and a description of the hyperlink. The description of a contribution contains the text typed by a user with specially encoded references to features, URL references and feature references. Additionally, each contribution stores the ids of the users who favorited it.\\
-After signing in, users can create contributions in the manner of creating topics or writing responses to existing topics. Users have an e-mail address and a name.
+Users can create contributions in the manner of creating topics or writing responses to existing topics. Users have an e-mail address and a name. Figure \ref{fig:data_structure} depicts a generalized data structure diagram.
 
-DATA STRUCTURE DIAGRAM
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=1\columnwidth]{data_structure}
+    \caption{Schema of the underlying data structure of the prototype. Time fields and ids are omitted for brevity.}
+    \label{fig:data_structure}
+\end{figure}
 
 The front page of the prototype puts a map side by side with a sidebar. The right hand sidebar contains the input form for new contributions, filter options, sorting order selector and the list of contributions. The input form consists of input fields for title, categories, time restriction, image and description. The description field allows the creation of spatial features and URL/feature references through connecting words with spatial representations or URLs.\\
 A text area for arbitrary text and multiple checkboxes allow to restrict the listed contribution as well as the geo-features displayed in the map. It is also possible to change the sorting order of the list of contribution through a drop down field.\\
