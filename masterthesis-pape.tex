@@ -113,7 +113,9 @@ swaghetti yolonaise
 % letter-number combination will need to be entered.}
 
 \section{Introduction}
-Since their first appearance, Web 2.0 applications utilized their collaborative character to gather information and opinions from their users. Today, modern information technologies are ubiquitous in many aspects of daily life. Involving citizens in decision processes around public matters through such applications has formed the field of ``eParticipation''. Its premise is to strengthen democratic processes between citizens and its governments through said modern information technologies \cite{Saebo_eParticipation, Medaglia2012_eParticipation}. One of many aspects is public deliberation, which revolves around engaging citizen in dialogues about their surroundings and decision processes.
+Since their first appearance, Web 2.0 applications utilized their collaborative character to gather information and opinions from their users. Today, modern information technologies are ubiquitous in many aspects of daily life. Involving citizens in decision processes around public matters through such applications has formed the field of ``eParticipation''. Its premise is to strengthen democratic processes between citizens and its governments through said modern information technologies \cite{Saebo_eParticipation, Medaglia2012_eParticipation}. One of many aspects is public deliberation, which revolves around engaging citizens in dialogues about their surroundings and decision processes.
+
+Following this idea, Rinner proposed the idea of ``Argumentation Maps'' \cite{Rinner_ArgumentationMaps}. 
 
 
 \section{Related Work}
@@ -133,19 +135,21 @@ Evaluation\dots
 
 \subsubsection{DialogMap}
 
-In order to test the initial idea of supporting public deliberation through spatially enhanced dialogues, a working prototype had to be developed. Starting from an initial survey of existing research, a first prototypical application was developed. This prototype was then extended and refined with practical advice from members of a scientific citizens' initiative. Their input ranged from general suggestions to opinions of specific features. This chapter will give some details of design and implementation of the developed developed.
+In order to test the initial idea of supporting public deliberation through spatially enhanced dialogues, a working prototype had to be developed. Starting from an initial survey of existing research, a first prototypical application was developed. This prototype was then extended and refined with practical advice from members of a scientific citizens' initiative. Their input ranged from general suggestions to opinions of specific features. This chapter will give some details to design and implementation of the developed prototype.
 
 
-\subsubsection{Design decisions} % and features
+\subsubsection{Design} % and features
 
 As seen in X,Y and Z, important aspects of A are\dots
 
-Internally, the prototype uses few data models. Contributions contain a title, description, two categories, a tags field, a favored counter, an optional time restriction field for start and ending times, an optional image, an optional reference to a parent contribution and optional references to child contributions. The parent and child contribution references create a simple parent-child connection between contributions, as children inherit the categories, tags, time restriction and title. A contribution serves both as a topic and as response to a topic. A contribution also contains references to features, references to features and references to URLs.\\
-Features are geospatial entities with a spatial location, a reference to its contribution and properties for styling\footnote{\url{https://github.com/mapbox/simplestyle-spec}}.\\
-Feature references contain a description of the featurea and the reference to a feature. URL references contain hyperlinks and a description of the hyperlink. The description of a contribution contains the text typed by a user with specially encoded references to features, URL references and feature references.\\
+Internally, the prototype uses few data models. Contributions contain a title, description, two categories, a tags field, a favored counter, an optional time restriction field for start and ending times, an optional image, an optional reference to a parent contribution and optional references to child contributions. The parent and child contribution references create a simple parent-child connection between contributions, as children inherit the categories, tags, time restriction and title. A contribution serves both as a topic and as response to a topic. A contribution also contains references to features, references to feature references and references to URLs.\\
+Features are geospatial entities with a location, a reference to its contribution and properties for styling\footnote{\url{https://github.com/mapbox/simplestyle-spec}}.\\
+Feature references contain a title, which can differ from the original title of the feature and a reference to a feature. URL references contain hyperlinks and a description of the hyperlink. The description of a contribution contains the text typed by a user with specially encoded references to features, URL references and feature references.\\
 After signing in, users can create contributions in the manner of creating topics or writing responses to existing topics. Users have an e-mail address and a name.
 
-The front page of the prototype puts a map side by side with a sidebar at right hand side containing from top to bottom the input form for new contributions, filter options, sorting order selector and a list of contributions. The input form consists of input fields for title, categories, time restriction, image and description. The description field allows the creation of spatial features and URL/feature references through connecting words with spatial representations or URLs.\\
+DATA STRUCTURE DIAGRAM
+
+The front page of the prototype puts a map side by side with a sidebar. t right hand side containing from top to bottom the input form for new contributions, filter options, sorting order selector and a list of contributions. The input form consists of input fields for title, categories, time restriction, image and description. The description field allows the creation of spatial features and URL/feature references through connecting words with spatial representations or URLs.\\
 A text area for arbitrary text and multiple checkboxes allow to restrict the listed contribution as well as the geo-features displayed in the map. It is also possible to change the order of the list of contribution through a drop down field.\\
 The list of contributions contains colored rectangles representing the different topics. Each box contains the title, time of writing, name of the author, categories, tags and the amount of times the contribution has been favored by users. It also contains a link which navigates to the replies written to the topic. A click on the contribution box expands it, revealing the description of the current topic.\\
 After clicking the ``reply'' link, only the selected topic and replies are shown in the sidebar in a chronological order. In this view, each contribution shows the description by default as well as author and time and date of writing. The author of the contribution is able to edit the contribution. Other users are able to favor the contribution to show interest or agreement.\\
