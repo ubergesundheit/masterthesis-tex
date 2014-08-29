@@ -114,12 +114,13 @@ swaghetti yolonaise
 \section{Introduction}
 Since their first appearance, Web 2.0 applications utilized their collaborative character to gather information and opinions from their users. Today, modern information technologies are ubiquitous in many aspects of daily life. Involving citizens in decision processes around public matters through such applications has formed the field of ``eParticipation''. Its premise is to strengthen democratic processes between citizens and its governments through said modern information technologies \cite{Saebo_eParticipation, Medaglia2012_eParticipation}. One of many aspects is public deliberation, which revolves around engaging citizens in dialogues about their surroundings and decision processes. Originally, these decision processes were executed amongst experts. The emergence of more and more spatial data led to the development of spatial decision support systems \cite{densham_sdss}. These systems were developed specifically to serve experts in public planning and often required professional training in order to be used effectively.
 
-Following the idea to support decision processes using geographic information systems and involving citizens into decision processes, Rinner proposed the idea of ``Argumentation Maps'' \cite{Rinner_ArgumentationMaps}. It features asynchronous discussions to support planning procedures and follows the assumption that locating arguments in a discussion spatially enhances the comprehensibility of the arguments. Since then, multiple implementations and extensions to Rinners ``Argumentation Map'' idea were developed and tested. Aspects like user trust and representation of minorities \cite{Carver2001_PPGIS_Cyberdemocracy}, level of participation \cite{Steinmann2005_Combination_Ladder_GIS} and 
+Following the idea to support decision processes using geographic information systems and involving citizens into decision processes, Rinner proposed the idea of ``Argumentation Maps'' \cite{Rinner_ArgumentationMaps}. It features asynchronous discussions to support planning procedures and follows the assumption that locating arguments in a discussion spatially enhances the comprehensibility of the arguments. Since then, multiple implementations and extensions to Rinners ``Argumentation Map'' idea were developed and tested. User trust and representation of minorities \cite{Carver2001_PPGIS_Cyberdemocracy}, level of participation \cite{Steinmann2005_Combination_Ladder_GIS} and prevention of information duplication \cite{Hopfer2007_Communication} are some of the research topics addressed.
 
 \subsection{Motivation}
 
 
 \section{Related Work}
+\label{chap:related_work}
 
 \subsection{Argumentation mapping}
 Rinner\cite{Rinner_ArgumentationMaps}\dots
@@ -132,7 +133,7 @@ Evaluation\dots
 
 \section{Approach}
 
-
+As seen in section \ref{chap:related_work}, various theoretical frameworks and implementations in the area of argumentation mapping exist 
 
 \subsection{DialogMap}
 
@@ -223,10 +224,14 @@ Results
 
 \section{Conclusion}
 
-This work discusses the implementation and quantitative evaluation of an prototype to support public deliberation through spatially enhanced dialogues in a specifc context.
+This work discusses the implementation and quantitative evaluation of an prototype to support public deliberation through spatially enhanced dialogues in a specific context.
 
 \subsection{Future Work}
-Pick up shortcomings emerged during evaluation. Point to solutions...
+Pick up shortcomings emerged during evaluation. Point to solutions. Mention recommendations from interviewers (Geocoder, list of favorites of each user, tasks)
+
+Feature idea: let users upload geodata.
+
+Maybe pick up unimplemented things from literature
 
 Legal implications of running such a website have to be explored.
 
@@ -289,86 +294,6 @@ Legal implications of running such a website have to be explored.
 
 %%%%%%%%%%%%% Begin Appendix %%%%%%%%%%%%%
 
-\clearpage
-\newpage
-\onecolumn
-
-\setcounter{section}{0}
- \setcounter{subsection}{0}
- \def\thesection{Appendix \Alph{section}}
- \def\thesubsection{Appendix \Alph{section}.\arabic{subsection}}
-
-\begin{landscape}
-
-\section{Semi-Structured Interview and Expert Interview Guidelines}
-\subsection{Semi-Structured Interview Guideline (in German)}
-
-\input{interviews/guideline_interview}
-
-
-\end{landscape}
-\newpage
-
-\twocolumn
-
-\subsection{Expert Interview Guideline}
-
-\input{interviews/guideline_expert_interview}
-
-
-\section{Transcribed Interviews}
-
-\subsection{Transcription System}
-The interviews and the focus group were transcribed the following these rules (Rules from Kuckarz \cite{kuckartz2007} with modifications):
-\begin{enumerate}
-    \item The transcription is literal. Dialects are not transcribed.
-    \item Punctuation and language are modified to match grammar and syntax of the german language.
-    \item All personal details and mentions are removed and anonymized to prevent re-identification.
-    \item Pauses and breaks are marked with ellipses (\dots).
-    \item Agreeing sounds like ``Mhms'', ``Ahas'', etc. of the interviewer are not transcribed if they did not interrupt the interviewee.
-    \item Interjections of the other person are in brackets.
-    \item Supporting or clarifying sounds of the interviewee like laughing or sighing are noted in brackets.
-    \item Passages of the interviewing person are denoted with ``I:'', passages of the interviewed person with a distinct abbreviation like ``P1:''.
-\end{enumerate}
-
-\subsection{Demo and Introduction to the Application}
-
-In each interview, the interviewer introduced and demoed the application to the interviewed person. This exemplary introduction was transcribed from the interview with participant 1. In order to retain brevity, it is omitted in the other transcriptions.
-
-\input{interviews/introduction_interviews}
-
-\subsection{Participant 1}
-
-\input{interviews/interview_p1}
-
-\subsection{Participant 2}
-
-\input{interviews/interview_p2}
-
-\subsection{Participant 3}
-
-\input{interviews/interview_p3}
-
-\subsection{Participant 4}
-
-\input{interviews/interview_p4}
-
-\subsection{Participant 5}
-
-\input{interviews/interview_p5}
-
-\subsection{Participant 6}
-
-\input{interviews/interview_p6}
-
-\section{Transcribed Expert Interviews}
-
-\subsection{Interview Tobias Heide}
-
-\input{interviews/interview_e1}
-
-\subsection{Interview Carsten Ke{\ss}ler}
-
-\input{interviews/interview_e2}
+\input{appendix}
 
 \end{document}
