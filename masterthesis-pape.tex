@@ -138,10 +138,9 @@ Evaluation\dots
 
 In order to test the initial idea of supporting public deliberation through spatially enhanced dialogues, a working prototype had to be developed. Starting from an initial survey of existing research, a first prototypical application was developed. This prototype was then extended and refined with practical advice from members of a scientific citizens' initiative. Their input ranged from general suggestions to opinions of specific features. This chapter will give some details to design and implementation of the developed prototype.
 
+As seen in X,Y and Z, important aspects of A are\dots
 
 \subsection{Design} % and features
-
-As seen in X,Y and Z, important aspects of A are\dots
 
 Internally, the prototype uses few data models. Contributions contain a title, description, two categories, a tags field, a favored counter, an optional time restriction field for start and ending times, an optional image, an optional reference to a parent contribution and optional references to child contributions. The parent and child contribution references create a simple parent-child connection between contributions, as children inherit the categories, tags, time restriction and title. A contribution serves both as a topic and as response to a topic. A contribution also contains references to features, references to feature references and references to URLs.\\
 Features are geospatial entities with a location, a reference to its contribution and properties for styling\footnote{\url{https://github.com/mapbox/simplestyle-spec}}.\\
@@ -155,7 +154,7 @@ Users can create contributions in the manner of creating topics or writing respo
     \label{fig:data_structure}
 \end{figure}
 
-The front page of the prototype puts a map side by side with a sidebar. The right hand sidebar contains the input form for new contributions, filter options, sorting order selector and the list of contributions. The input form consists of input fields for title, categories, time restriction, image and description. The description field allows the creation of spatial features and URL/feature references through connecting words with spatial representations or URLs.\\
+The front page of the prototype consists of a map with a sidebar. This allows the user to see both the spatial and textual representations of a contribution in one glance. The right hand sidebar contains the input form for new contributions, filter options, sorting order selector and the list of contributions. The input form consists of input fields for title, categories, time restriction, image and description. The description field allows the creation of spatial features and URL/feature references through connecting words with spatial representations or URLs.\\
 A text area for arbitrary text and multiple checkboxes allow to restrict the listed contribution as well as the geo-features displayed in the map. It is also possible to change the sorting order of the list of contribution through a drop down field.\\
 The list of contributions contains colored rectangles representing the different topics. Each rectangle contains the title, time of writing, name of the author, categories, tags and the amount of times the contribution has been favored by users. It also contains a link which navigates to the replies written to the topic. A click on the contribution rectangle expands it vertically, revealing the description of the current topic.\\
 After clicking the ``reply'' link, only the selected topic and replies are shown in the sidebar in a chronological order. In this view, each contribution shows the description by default as well as author and time and date of writing. The author of the contribution is able to edit and delete the contribution. Upon deletion, the user can enter a reason for deletion, which then will be displayed below the deleted contribution. The deletion is not destructive. The contribution as well as features created for the contribution are marked visually as deleted. Other users are able to favor contribution to show interest or agreement.\\
