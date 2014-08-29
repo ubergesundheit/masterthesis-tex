@@ -1,17 +1,5 @@
 \documentclass{sigchi}
 
-% Use this command to override the default ACM copyright statement (e.g. for preprints). 
-% Consult the conference website for the camera-ready copyright statement.
-
-
-%% EXAMPLE BEGIN -- HOW TO OVERRIDE THE DEFAULT COPYRIGHT STRIP -- (July 22, 2013 - Paul Baumann)
-% \toappear{Permission to make digital or hard copies of all or part of this work for personal or classroom use is 	granted without fee provided that copies are not made or distributed for profit or commercial advantage and that copies bear this notice and the full citation on the first page. Copyrights for components of this work owned by others than ACM must be honored. Abstracting with credit is permitted. To copy otherwise, or republish, to post on servers or to redistribute to lists, requires prior specific permission and/or a fee. Request permissions from permissions@acm.org. \\
-% {\emph{CHI'14}}, April 26--May 1, 2014, Toronto, Canada. \\
-% Copyright \copyright~2014 ACM ISBN/14/04...\$15.00. \\
-% DOI string from ACM form confirmation}
-%% EXAMPLE END -- HOW TO OVERRIDE THE DEFAULT COPYRIGHT STRIP -- (July 22, 2013 - Paul Baumann)
-
-
 % Arabic page numbers for submission. 
 % Remove this line to eliminate page numbers for the camera ready copy
 \pagenumbering{arabic}
@@ -29,6 +17,17 @@
 % \usepackage{geometry}
 \usepackage[strict]{changepage}
 \usepackage{german}
+
+
+\usepackage[stretch=10,shrink=10]{microtype}
+
+\SetExtraKerning[unit=space]
+    {encoding={*}, family={bch}, series={*}, size={footnotesize,small,normalsize}}
+    {\textendash={400,400}, % en-dash, add more space around it
+     "28={ ,150}, % left bracket, add space from right
+     "29={150, }, % right bracket, add space from left
+     \textquotedblleft={ ,150}, % left quotation mark, space from right
+     \textquotedblright={150, }} % right quotation mark, space from left
 
 % llt: Define a global style for URLs, rather that the default one
 \makeatletter
@@ -78,16 +77,6 @@ breaklinks=true,
   \alignauthor Gerald Pape\\
     \affaddr{Institute for Geoinformatics}\\
     \email{g.pape@uni-muenster.de}\\
-%   \alignauthor 2nd Author Name\\
-%     \affaddr{Affiliation}\\
-%     \affaddr{Address}\\
-%     \email{e-mail address}\\
-%     \affaddr{Optional phone number}    
-%   \alignauthor 3rd Author Name\\
-%     \affaddr{Affiliation}\\
-%     \affaddr{Address}\\
-%     \email{e-mail address}\\
-%     \affaddr{Optional phone number}
 }
 
 \maketitle
@@ -96,20 +85,6 @@ breaklinks=true,
 swaghetti yolonaise
 \end{abstract}
 
-% \keywords{
-% 	Guides; instructions; author's kit; conference publications;
-% 	keywords should be separated by a semi-colon.
-% 	\textcolor{red}{Mandatory section to be included in your final version.}
-% }
-
-% \category{H.5.m.}{Information Interfaces and Presentation (e.g. HCI)}{Miscellaneous}
-
-% See: \url{http://www.acm.org/about/class/1998/}
-% for more information and the full list of ACM classifiers
-% and descriptors. 
-% \textcolor{red}{Mandatory section to be included in your
-% final version. On the submission page only the classifiers'
-% letter-number combination will need to be entered.}
 
 \section{Introduction}
 Since their first appearance, Web 2.0 applications utilized their collaborative character to gather information and opinions from their users. Today, modern information technologies are ubiquitous in many aspects of daily life. Involving citizens in decision processes around public matters through such applications has formed the field of ``eParticipation''. Its premise is to strengthen democratic processes between citizens and its governments through said modern information technologies \cite{Saebo_eParticipation, Medaglia2012_eParticipation}. One of many aspects is public deliberation, which revolves around engaging citizens in dialogues about their surroundings and decision processes. Originally, these decision processes were executed amongst experts. The emergence of more and more spatial data led to the development of spatial decision support systems \cite{densham_sdss}. These systems were developed specifically to serve experts in public planning and often required professional training in order to be used effectively.
@@ -133,15 +108,19 @@ Evaluation\dots
 
 \section{Approach}
 
-As seen in section \ref{chap:related_work}, various theoretical frameworks and implementations in the area of argumentation mapping exist 
+As seen in section \ref{chap:related_work}, research features various theoretical frameworks and implementations in the area of argumentation mapping. 
+
+This section will pick up on recommendations and suggestions of existing research (sub-section \ref{sub:dialogmap}), describe general concepts of the implemented prototype (sub-section \ref{sub:design}) and lay out implementation details (sub-section \ref{sub:implementation}).
 
 \subsection{DialogMap}
+\label{sub:dialogmap}
 
 In order to test the initial idea of supporting public deliberation through spatially enhanced dialogues, a working prototype had to be developed. Starting from an initial survey of existing research, a first prototypical application was developed. This prototype was then extended and refined with practical advice from members of a scientific citizens' initiative. Their input ranged from general suggestions to opinions of specific features. This chapter will give some details to design and implementation of the developed prototype.
 
 As seen in X,Y and Z, important aspects of A are\dots
 
 \subsection{Design} % and features
+\label{sub:design}
 
 Internally, the prototype uses few data models. Contributions contain a title, description, two categories, a tags field, a favored counter, an optional time restriction field for start and ending times, an optional image, an optional reference to a parent contribution and optional references to child contributions. The parent and child contribution references create a simple parent-child connection between contributions, as children inherit the categories, tags, time restriction and title. A contribution serves both as a topic and as response to a topic. A contribution also contains references to features, references to feature references and references to URLs.\\
 Features are geospatial entities with a location, a reference to its contribution and properties for styling\footnote{\url{https://github.com/mapbox/simplestyle-spec}}.\\
@@ -198,6 +177,7 @@ Users are able to use either traditional sing-up/sign-in methods or sign-in thro
 
 
 \subsection{Implementation}
+\label{sub:implementation}
 \textit{DialogMap} has been implemented as a single-page web application using AngularJS\footnote{\url{http://angularjs.org/}} and Ruby on Rails\footnote{\url{http://rubyonrails.org/}}. The single-page structure was chosen in order to provide the user with a clear navigation between the overview and contribution answers. This also allows for a seamless browsing experience without full reloads of the page. AngularJS is a JavaScript framework with features like templating, two-way binding and DOM manipulation. It follows the model-view-controller pattern in order to bring server side paradigms to client-side development. AngularJS was chosen because of its popularity, extensibility and high number of available libraries. It also enables to wrap existing JavaScript libraries to be used in AngularJS context.\\
 The mapping library Leaflet\footnote{\url{http://leafletjs.com/}} serves as base for displaying base maps and geospatial data. The user-facing web page was developed using tools like CoffeeScript\footnote{\url{http://coffeescript.org/}}, Haml\footnote{\url{http://haml.info/}} and Sass\footnote{\url{http://sass-lang.com/}} to speed up the development. The web page was developed with all major browsers in mind.\\
 On the server side, components were developed using the Ruby on Rails framework with PostgreSQL\footnote{\url{http://www.postgresql.org/}}/PostGIS\footnote{\url{http://postgis.net/}} as data storage. Ruby on Rails, originally a full-stack model-view-controller web framework, is used as a JSON serving application logic. It was chosen because of its maturity and high number of available libraries. Front- and backend of the prototype communicate in REST\footnote{Representational State Transfer}-API\footnote{Application programming interface} like manner. This allows for easily replaceable front- and backend application stacks.\\
@@ -210,7 +190,6 @@ Without the extensive use of open source software and code, development would ha
     \caption{Screenshot of the front page of \textit{DialogMap} with active highlight of a contribution and spatial feature.}
     \label{fig:screenshot}
 \end{figure}
-
 
 \section{Evaluation}
 
