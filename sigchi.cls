@@ -1083,8 +1083,8 @@
 %% NOTE: OK to use old-style font commands below, since they were
 %% suitably redefined for LaTeX2e
 %% END CHANGES
-%\setcounter{secnumdepth}{3}
-\setcounter{secnumdepth}{-2} % DLC
+\setcounter{secnumdepth}{3}
+%\setcounter{secnumdepth}{-2} % DLC
 \def\part{%
     \@startsection{part}{9}{\z@}{-10\p@ \@plus -4\p@ \@minus -2\p@}
         {4\p@}{\normalsize\@ucheadtrue}%
@@ -1108,7 +1108,9 @@
 
 \def\subsection{%
     \@startsection{subsection}{2}{\z@}{8pt plus 3pt minus 3pt}%
-    {0.5pt}{\baselineskip=14pt\secfnt}%
+    %{0.5pt}{\baselineskip=14pt\secfnt}%
+    %\@startsection{subsection}{2}{\z@}{4pt plus 2pt minus 1pt}%
+    {0.5pt}{\baselineskip=14pt\subsecfnt}%
 }
 \def\subsubsection{%
     \@startsection{subsubsection}{3}{\z@}{4pt plus 2pt minus 1pt}%

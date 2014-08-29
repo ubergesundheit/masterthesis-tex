@@ -112,32 +112,34 @@ swaghetti yolonaise
 % letter-number combination will need to be entered.}
 
 \section{Introduction}
-Since their first appearance, Web 2.0 applications utilized their collaborative character to gather information and opinions from their users. Today, modern information technologies are ubiquitous in many aspects of daily life. Involving citizens in decision processes around public matters through such applications has formed the field of ``eParticipation''. Its premise is to strengthen democratic processes between citizens and its governments through said modern information technologies \cite{Saebo_eParticipation, Medaglia2012_eParticipation}. One of many aspects is public deliberation, which revolves around engaging citizens in dialogues about their surroundings and decision processes. Originally, these decision processes were executed amongst experts. The emergence of more and more spatial data led to the development of spatial decision support systems \cite{densham_sdss}. These systems were developed specifically to serve experts in public planning.
+Since their first appearance, Web 2.0 applications utilized their collaborative character to gather information and opinions from their users. Today, modern information technologies are ubiquitous in many aspects of daily life. Involving citizens in decision processes around public matters through such applications has formed the field of ``eParticipation''. Its premise is to strengthen democratic processes between citizens and its governments through said modern information technologies \cite{Saebo_eParticipation, Medaglia2012_eParticipation}. One of many aspects is public deliberation, which revolves around engaging citizens in dialogues about their surroundings and decision processes. Originally, these decision processes were executed amongst experts. The emergence of more and more spatial data led to the development of spatial decision support systems \cite{densham_sdss}. These systems were developed specifically to serve experts in public planning and often required professional training in order to be used effectively.
 
-Following the idea to support decision processes using geographic information systems and involving citizens into decision processes, Rinner proposed the idea of ``Argumentation Maps'' \cite{Rinner_ArgumentationMaps}. It features asynchronous discussions to support planning procedures. 
+Following the idea to support decision processes using geographic information systems and involving citizens into decision processes, Rinner proposed the idea of ``Argumentation Maps'' \cite{Rinner_ArgumentationMaps}. It features asynchronous discussions to support planning procedures and follows the assumption that locating arguments in a discussion spatially enhances the comprehensibility of the arguments. Since then, multiple implementations and extensions to Rinners ``Argumentation Map'' idea were developed and tested.
+
+\subsection{Motivation}
 
 
 \section{Related Work}
 
-\subsubsection{Argumentation mapping}
+\subsection{Argumentation mapping}
 Rinner\cite{Rinner_ArgumentationMaps}\dots
 
 Existing implementations\dots
 
 Evaluation\dots
-\subsubsection{Public deliberation and eParticipation}
+\subsection{Public deliberation and eParticipation}
 
 
 \section{Approach}
 
 
 
-\subsubsection{DialogMap}
+\subsection{DialogMap}
 
 In order to test the initial idea of supporting public deliberation through spatially enhanced dialogues, a working prototype had to be developed. Starting from an initial survey of existing research, a first prototypical application was developed. This prototype was then extended and refined with practical advice from members of a scientific citizens' initiative. Their input ranged from general suggestions to opinions of specific features. This chapter will give some details to design and implementation of the developed prototype.
 
 
-\subsubsection{Design} % and features
+\subsection{Design} % and features
 
 As seen in X,Y and Z, important aspects of A are\dots
 
@@ -148,7 +150,7 @@ Users can create contributions in the manner of creating topics or writing respo
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=1\columnwidth]{data_structure}
+    \includegraphics[width=1\columnwidth]{images/data_structure}
     \caption{Schema of the underlying data structure of the prototype. Time and id fields are omitted for brevity.}
     \label{fig:data_structure}
 \end{figure}
@@ -195,7 +197,7 @@ Users are able to use either traditional sing-up/sign-in methods or sign-in thro
 % \end{itemize}
 
 
-\subsubsection{Implementation}
+\subsection{Implementation}
 \textit{DialogMap} has been implemented as a single-page web application using AngularJS\footnote{\url{http://angularjs.org/}} and Ruby on Rails\footnote{\url{http://rubyonrails.org/}}. The single-page structure was chosen in order to provide the user with a clear navigation between the overview and contribution answers. This also allows for a seamless browsing experience without full reloads of the page. AngularJS is a JavaScript framework with features like templating, two-way binding and DOM manipulation. It follows the model-view-controller pattern in order to bring server side paradigms to client-side development. AngularJS was chosen because of its popularity, extensibility and high number of available libraries. It also enables to wrap existing JavaScript libraries to be used in AngularJS context.\\
 The mapping library Leaflet\footnote{\url{http://leafletjs.com/}} serves as base for displaying base maps and geospatial data. The user-facing web page was developed using tools like CoffeeScript\footnote{\url{http://coffeescript.org/}}, Haml\footnote{\url{http://haml.info/}} and Sass\footnote{\url{http://sass-lang.com/}} to speed up the development. The web page was developed with all major browsers in mind.\\
 On the server side, components were developed using the Ruby on Rails framework with PostgreSQL\footnote{\url{http://www.postgresql.org/}}/PostGIS\footnote{\url{http://postgis.net/}} as data storage. Ruby on Rails, originally a full-stack model-view-controller web framework, is used as a JSON serving application logic. It was chosen because of its maturity and high number of available libraries. Front- and backend of the prototype communicate in REST\footnote{Representational State Transfer}-API\footnote{Application programming interface} like manner. This allows for easily replaceable front- and backend application stacks.\\
@@ -204,7 +206,7 @@ Without the extensive use of open source software and code, development would ha
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.9\columnwidth]{screenshot}
+    \includegraphics[width=0.9\columnwidth]{images/screenshot}
     \caption{Screenshot of the front page of \textit{DialogMap} with active highlight of a contribution and spatial feature.}
     \label{fig:screenshot}
 \end{figure}
@@ -224,7 +226,7 @@ Results
 
 This work discusses the implementation and quantitative evaluation of an prototype to support public deliberation through spatially enhanced dialogues in a specifc context.
 
-\subsubsection{Future Work}
+\subsection{Future Work}
 Pick up shortcomings emerged during evaluation. Point to solutions...
 
 Legal implications of running such a website have to be explored.
@@ -286,98 +288,38 @@ Legal implications of running such a website have to be explored.
 \bibliographystyle{acm-sigchi}
 \bibliography{masterthesis-pape}
 
+%%%%%%%%%%%%% Begin Appendix %%%%%%%%%%%%%
 
 \clearpage
 \newpage
 \onecolumn
 
+\setcounter{section}{0}
+ \setcounter{subsection}{0}
+ \def\thesection{Appendix \Alph{section}}
+ \def\thesubsection{Appendix \Alph{section}.\arabic{subsection}}
+
 \begin{landscape}
 
+\section{Semi-Structured Interview and Expert Interview Guidelines}
+\subsection{Semi-Structured Interview Guideline (in German)}
 
-\section{Appendix A. Semi-Structured Interview and Expert Interview Guidelines}
-\subsubsection{Appendix A.1. Semi-Structured Interview Guideline (in German)}
-The interview guideline was developed following rules of Helfferich \cite{helfferich2005}. It is in german as the interviews were held in german. Participants were shown the developed application prior to the interview.
-\begin{adjustwidth}{-8em}{-8em}
+\input{interviews/guideline_interview}
 
-\begin{longtable}{|p{6.45cm}|p{6.45cm}|p{6.45cm}|p{6.45cm}|}
- \hline
- \textbf{Leitfrage (Erz{\"a}hlaufforderung)}&\textbf{Check -- Wurde das erw{\"a}hnt? Memo f{\"u}r m{\"o}gliche Nachfragen -- nur stellen wenn nicht von allein angesprochen! Formulierung anpassen}&\textbf{Konkrete Fragen -- bitte an passender Stelle (auch am Ende m{\"o}glich) in dieser Formulierung stellen}&\textbf{Aufrechterhaltungs- und Steuerungsfragen}\\
- \hline
 
- \multicolumn{4}{|l|}{\textbf{Teil 1 -- B{\"u}rgerbeteiligung}}\\
- \hline
- 
- Erz{\"a}hlen Sie mir {\"u}ber ihre Rolle und Aufgaben in B{\"u}rgerbeteiligung & Wie lange aktiv (Befragter, Projekt)\newline "`Organisator"' oder "`an der Basis"' & & Erz{\"a}hlen Sie noch mehr {\"u}ber\dots \\
- \hline
- 
- 
- Bitte beschreiben Sie mir die aus ihrer Sicht wichtigsten Aspekte von B{\"u}rgerbeteiligung. & Ziele \newline Nutzen & & \\
- \hline
- 
- Bitte geben Sie mir eine Einf{\"u}hrung in ein(e) laufende(s)/ abgeschlossene(s) Initiative/Projekt (spontan entscheiden welches mehr "`dialogische"' Interaktion zwischen B{\"u}rgern und Aktion erfordert)& Methoden f{\"u}r B{\"u}rgerbefragung \newline Wie erfolgreich/Probleme? \newline "`Moderne"' (Social media) methoden angedacht? \newline Form von Beitr{\"a}gen die B{\"u}rger gebracht haben \newline Wie wurden die Aspekte ber{\"u}cksichtigt?
-   & Welchen Wert wurde auf Dialoge zwischen den Akteuren gelegt? & Wie ist das ganze dann abgelaufen?\\
- \hline
- 
- \multicolumn{4}{|l|}{\textbf{Teil 2 -- Einsatz der Anwendung}}\\
- \hline
- 
- Bitte geben Sie mir eine Einf{\"u}hrung in das Projekt in dem Sie die Anwendung einsetzen wollen. & Zielgruppe (Bev{\"o}lkerungsgruppen, Geographisch) \newline redaktionelle Inhalte \newline erwartete Inhalte \newline Anreize zu Dialogen/Austausch mit B{\"u}rgern? & K{\"o}nnen Sie sich weitere Anwendungsf{\"a}lle f{\"u}r die Verkn{\"u}pfung von Texten mit Karten neben B{\"u}rgerbeteiligung vorstellen? & Erz{\"a}hlen Sie noch mehr {\"u}ber\dots \\
- \hline
- 
- Welche Gr{\"u}nde sprechen f{\"u}r den Einsatz dieser L{\"o}sung gegen{\"u}ber anderen L{\"o}sungen. & Bedingungen (technisch, funktional) \newline angedachte Alternativen und deren Defizite \newline B{\"u}rgerbeteiligungsaspekte ber{\"u}cksichtigt? & Welche Eigenschaften w{\"u}rden Sie davon abhalten solch eine Anwendung einzusetzen? \newline Was k{\"o}nnte B{\"u}rger davon abhalten sich durch die Anwendung zu beteiligen? & \\
- \hline
-
- \multicolumn{4}{|l|}{\textbf{Teil 3 -- Abschlie{\ss}ende Fragen}}\\
- \hline
- 
- Kennen Sie Beispiele f{\"u}r die Verkn{\"u}pfung geographischer Daten mit Diskussionsbeitr{\"a}gen? & Next Kassel/Hamburg \newline Frankfurt Gestalten \newline Shareabouts \newline collaborativemap.org & & \\
- \hline
- 
- Haben Sie sich dort beteiligt? & In welcher Form & & Wie ist das ganze dann abgelaufen? \\
- \hline
- 
- Kennen Sie Werkzeuge um interaktive Karten mit eigenen Inhalten zu erzeugen? & Google Map Maker \newline Here Map Creator \newline Wikimapia \newline Unclemap & & \\
- \hline
- 
- Haben Sie schonmal ein solches Werkzeug eingesetzt? & Wie? & &\\
- \hline
- 
- \end{longtable}
-\end{adjustwidth}
 \end{landscape}
 \newpage
 
-\subsubsection{Appendix A.1. Expert Interview Guideline}
-
-As mentioned by Helfferich \cite{helfferich2005}, can handle more direct questions. Therefore these questions are much more straightforward. Because the interviews were held in german, the questions are also in german. Prior to the interview, the developed application was demoed.
-\begin{itemize}
-    \item Kennen Sie Anwendungen die Diskussionen durch Geoobjekte unterst{\"u}tzen?
-    \item Welche davon haben Sie in der Vergangenheit schon einmal benutzt?
-    \item Z{\"a}hlen Sie bitte die Vor- und Nachteile dieser Anwendungen auf
-    \item Welche Anwendungsf{\"a}lle f{\"u}r die Verkn{\"u}pfung von Diskussionen und Geoobjekten k{\"o}nnen Sie sich außerhalb des B{\"u}rgerbeteiligungskontextes vorstellen?
-    \item Welche L{\"o}sungen um B{\"u}rger mit Initiativen/Politik zusammenzubringen kennen Sie?
-    \item Wie l{\"a}uft die Kommunikation zwischen den B{\"u}rgern und Initiativen/Politik bei diesen L{\"o}sungen ab?
-    \item Denken Sie die explizite Verkn{\"u}pfung von Geoobjekten mit Diskussionsgegenst{\"a}nden ist generell hilfreich im B{\"u}rgerbeteiligungskontext / bei Dialogen?
-    \item Im Vergleich zu den Anwendungen die Sie kennen, was denken Sie {\"u}ber die folgenden Funktionen der eben vorgestellten Anwendung?
-        \begin{itemize}
-            \item Verstecken von Geoobjekten die zu Antworten erstellt worden sind; In der Themenansicht nur die Geoobjekte der initialen Beitr{\"a}ge auf der Karte
-            \item Zwei Wege Highlights von Geoobjekten und Beitr{\"a}gsboxen
-            \item Filter und Sortierung
-            \item Verfassen/Antworten
-            \item Verkn{\"u}pfen von W{\"o}rtern mit neuen Geoobjekten, bestehenden Geoobjekten und Links
-            \item Favorisierung von Beitr{\"a}gen
-            \item Benutzerregistrierung/Anmeldung (und Social Login)
-        \end{itemize}
-    \item Werden ihrer Meinung nach Dialoge vereinfacht oder unterst{\"u}tzt?
-    \item Welche Funktionen haben Sie vermisst?
-    \item Was k{\"o}nnte B{\"u}rger davon abhalten sich durch die Anwendung zu beteiligen?
-
-\end{itemize}
-
 \twocolumn
-\section{Appendix B. Transcribed Interviews}
 
-\subsubsection{Appendix B.1. Transcription System}
+\subsection{Expert Interview Guideline}
+
+\input{interviews/guideline_expert_interview}
+
+
+\section{Transcribed Interviews}
+
+\subsection{Transcription System}
 The interviews and the focus group were transcribed the following these rules (Rules from Kuckarz \cite{kuckartz2007} with modifications):
 \begin{enumerate}
     \item The transcription is literal. Dialects are not transcribed.
@@ -390,41 +332,43 @@ The interviews and the focus group were transcribed the following these rules (R
     \item Passages of the interviewing person are denoted with ``I:'', passages of the interviewed person with a distinct abbreviation like ``P1:''.
 \end{enumerate}
 
-\subsubsection{Appendix B.2. Demo and Introduction to the Application}
+\subsection{Demo and Introduction to the Application}
 
 In each interview, the interviewer introduced and demoed the application to the interviewed person. This exemplary introduction was transcribed from the interview with participant 1. In order to retain brevity, it is omitted in the other transcriptions.
 
 \input{interviews/introduction_interviews}
 
-\subsubsection{Appendix B.3. Participant 1}
+\subsection{Participant 1}
 
 \input{interviews/interview_p1}
 
-\subsubsection{Appendix B.4. Participant 2}
+\subsection{Participant 2}
 
 \input{interviews/interview_p2}
 
-\subsubsection{Appendix B.5. Participant 3}
+\subsection{Participant 3}
 
 \input{interviews/interview_p3}
 
-\subsubsection{Appendix B.6. Participant 4}
+\subsection{Participant 4}
 
 \input{interviews/interview_p4}
 
-\subsubsection{Appendix B.7. Participant 5}
+\subsection{Participant 5}
 
 \input{interviews/interview_p5}
 
-\subsubsection{Appendix B.8. Participant 6}
+\subsection{Participant 6}
 
 \input{interviews/interview_p6}
 
-\subsubsection{Appendix B.X Expert 1}
+\section{Transcribed Expert Interviews}
+
+\subsection{Interview Tobias Heide}
 
 \input{interviews/interview_e1}
 
-\subsubsection{Appendix B.X Expert 2}
+\subsection{Interview Carsten Ke{\ss}ler}
 
 \input{interviews/interview_e2}
 
