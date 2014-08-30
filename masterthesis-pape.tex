@@ -1,0 +1,251 @@
+\documentclass{sigchi}
+
+% Arabic page numbers for submission. 
+% Remove this line to eliminate page numbers for the camera ready copy
+\pagenumbering{arabic}
+
+
+% Load basic packages
+\usepackage{balance}  % to better equalize the last page
+\usepackage{graphics} % for EPS, load graphicx instead
+\usepackage{times}    % comment if you want LaTeX's default font
+\usepackage{url}      % llt: nicely formatted URLs
+\usepackage{color}
+
+\usepackage{pdflscape}
+\usepackage{longtable}
+% \usepackage{geometry}
+\usepackage[strict]{changepage}
+\usepackage{german}
+
+
+\usepackage[stretch=10,shrink=10]{microtype}
+
+\SetExtraKerning[unit=space]
+    {encoding={*}, family={bch}, series={*}, size={footnotesize,small,normalsize}}
+    {\textendash={400,400}, % en-dash, add more space around it
+     "28={ ,150}, % left bracket, add space from right
+     "29={150, }, % right bracket, add space from left
+     \textquotedblleft={ ,150}, % left quotation mark, space from right
+     \textquotedblright={150, }} % right quotation mark, space from left
+
+% llt: Define a global style for URLs, rather that the default one
+\makeatletter
+\def\url@leostyle{%
+  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\bf\ttfamily}}}
+\makeatother
+\urlstyle{leo}
+
+
+% To make various LaTeX processors do the right thing with page size.
+\def\pprw{210mm}
+\def\pprh{297mm}
+\special{papersize=\pprw,\pprh}
+\setlength{\paperwidth}{\pprw}
+\setlength{\paperheight}{\pprh}
+\setlength{\pdfpagewidth}{\pprw}
+\setlength{\pdfpageheight}{\pprh}
+
+% Make sure hyperref comes last of your loaded packages, 
+% to give it a fighting chance of not being over-written, 
+% since its job is to redefine many LaTeX commands.
+\usepackage[pdftex]{hyperref}
+\hypersetup{
+pdftitle={Supporting public deliberation through spatially enhanced dialogues},
+pdfauthor={LaTeX},
+bookmarksnumbered,
+pdfstartview={FitH},
+colorlinks,
+citecolor=black,
+filecolor=black,
+linkcolor=black,
+urlcolor=black,
+breaklinks=true,
+}
+
+% create a shortcut to typeset table headings
+\newcommand\tabhead[1]{\small\textbf{#1}}
+
+% End of preamble. Here it comes the document.
+\begin{document}
+
+\title{Supporting public deliberation\\through spatially enhanced dialogues}
+\subtitle{Master thesis}
+
+\numberofauthors{1}
+\author{
+  \alignauthor Gerald Pape\\
+    \affaddr{Institute for Geoinformatics}\\
+    \email{g.pape@uni-muenster.de}\\
+}
+
+\maketitle
+
+\begin{abstract}
+swaghetti yolonaise
+\end{abstract}
+
+
+\section{Introduction}
+Since their first appearance, Web 2.0 applications utilized their collaborative character to gather information and opinions from their users. Today, modern information technologies are ubiquitous in many aspects of daily life. Involving citizens in decision processes around public matters through such applications has formed the field of ``eParticipation''. Its premise is to strengthen democratic processes between citizens and its governments through said modern information technologies \cite{Saebo_eParticipation, Medaglia2012_eParticipation}. One of many aspects is public deliberation, which revolves around engaging citizens in dialogues about their surroundings and decision processes. Originally, these decision processes were executed amongst experts. The emergence of more and more spatial data led to the development of spatial decision support systems \cite{densham_sdss}. These systems were developed specifically to serve experts in public planning and often required professional training in order to be used effectively.
+
+Following the idea to support decision processes using geographic information systems and involving citizens into decision processes, Rinner proposed the idea of ``Argumentation Maps'' \cite{Rinner_ArgumentationMaps}. It features asynchronous discussions to support planning procedures and follows the assumption that locating arguments in a discussion spatially enhances the comprehensibility of the arguments. Since then, multiple implementations and extensions to Rinners ``Argumentation Map'' idea were developed and tested. User trust and representation of minorities \cite{Carver2001_PPGIS_Cyberdemocracy}, level of participation \cite{Steinmann2005_Combination_Ladder_GIS} and prevention of information duplication \cite{Hopfer2007_Communication} are some of the research topics addressed.
+
+\subsection{Motivation}
+
+
+\section{Related Work}
+\label{chap:related_work}
+
+Participation as democratic process
+
+eParticipation and egovernment
+
+Argumentation mapping
+
+Rinner\cite{Rinner_ArgumentationMaps}\dots
+
+Existing implementations\dots
+
+Evaluation techniques\dots
+
+
+\subsection{Public deliberation and eParticipation}
+
+
+\section{Approach}
+
+As seen in section \ref{chap:related_work}, research features various theoretical frameworks and implementations in the area of argumentation mapping. 
+
+This section will give information about the context and background of the  developed prototype (sub-section \ref{sub:dialogmap}), describe general concepts of the implemented prototype (sub-section \ref{sub:design}) and lay out implementation details (sub-section \ref{sub:implementation}).
+
+\subsection{DialogMap}
+\label{sub:dialogmap}
+
+In order to test the initial idea of supporting public deliberation through spatially enhanced dialogues, a working prototype had to be developed. Starting from an initial survey of existing research, a first prototypical application was developed. This prototype was then extended and refined with practical advice from members of a scientific citizens' initiative. Their input ranged from general suggestions to opinions of specific features. This chapter will give some details to design and implementation of the developed prototype.
+
+As seen in X,Y and Z, important aspects of A are\dots
+
+\subsection{Design} % and features
+\label{sub:design}
+
+Internally, the prototype uses few data models. Contributions contain a title, description, two categories, a tags field, a favored counter, an optional time restriction field for start and ending times, an optional image, an optional reference to a parent contribution and optional references to child contributions. The parent and child contribution references create a simple parent-child connection between contributions, as children inherit the categories, tags, time restriction and title. A contribution serves both as a topic and as response to a topic. A contribution also contains references to features, references to feature references and references to URLs.\\
+Features are geospatial entities with a location, a reference to its contribution and properties for styling\footnote{\url{https://github.com/mapbox/simplestyle-spec}}.\\
+Feature references contain a title, which can differ from the original title of the feature and a reference to a feature. URL references contain hyperlinks and a description of the hyperlink. The description of a contribution contains the text typed by a user with specially encoded references to features, URL references and feature references. Additionally, each contribution stores the ids of the users who favorited it.\\
+Users can create contributions in the manner of creating topics or writing responses to existing topics. Users have an e-mail address and a name. Figure \ref{fig:data_structure} depicts a generalized data structure diagram.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=1\columnwidth]{images/data_structure}
+    \caption{Schema of the underlying data structure of the prototype. Time and id fields are omitted for brevity.}
+    \label{fig:data_structure}
+\end{figure}
+
+The front page of the prototype consists of a map with a sidebar. This allows the user to see both the spatial and textual representations of a contribution at one glance. The right hand sidebar contains the input form for new contributions, filter options, sorting order selector and the list of contributions. The input form consists of input fields for title, categories, time restriction, image and description. The description field allows the creation of spatial features and URL/feature references through connecting words with spatial representations or URLs.\\
+A text area for arbitrary text and multiple checkboxes allow to restrict the listed contribution as well as the geo-features displayed in the map. It is also possible to change the sorting order of the list of contribution through a drop down field.\\
+The list of contributions contains colored rectangles representing the different topics. Each rectangle contains the title, time of writing, name of the author, categories, tags and the amount of times the contribution has been favored by users. It also contains a link which navigates to the replies written to the topic. A click on the contribution rectangle expands it vertically, revealing the description of the current topic.\\
+After clicking the ``reply'' link, only the selected topic and replies are shown in the sidebar in a chronological order. In this view, each contribution shows the description by default as well as author and time and date of writing. The author of the contribution is able to edit and delete the contribution. Upon deletion, the user can enter a reason for deletion, which then will be displayed below the deleted contribution. The deletion is not destructive. The contribution as well as features created for the contribution are marked visually as deleted. Other users are able to favor contribution to show interest or agreement.\\
+The map view contains a base map and several markers and polygons in different colors and different icons in case of markers. These relate to the contributions and are connected through the references in the description of the contributions. Which spatial features are displayed is determined through the state of the sidebar. In the topics overview, only the features created for the starting contributions are displayed in order to prevent cluttering of the view-port. When only a topic and its replies are displayed in the sidebar, all features related to the topic and its replies are shown on the map.\\
+To emphasize the relationship between a contribution and its spatial features, a two way highlighting has been implemented. Hovering over either a contribution-box, marked word or spatial feature on the map triggers visual highlighting on all related contributions, marked words and spatial features. This allows to quickly grasp the relationship between features and contributions.\\
+Users are able to use either traditional sing-up/sign-in methods or sign-in through different social log-in providers to authenticate to the system.
+
+\subsection{Implementation}
+\label{sub:implementation}
+\textit{DialogMap} has been implemented as a single-page web application using AngularJS\footnote{\url{http://angularjs.org/}} and Ruby on Rails\footnote{\url{http://rubyonrails.org/}}. The single-page structure was chosen in order to provide the user with a clear navigation between the overview and contribution answers. This also allows for a seamless browsing experience without full reloads of the page. AngularJS is a JavaScript framework with features like templating, two-way binding and DOM manipulation. It follows the model-view-controller pattern in order to bring server side paradigms to client-side development. AngularJS was chosen because of its popularity, extensibility and high number of available libraries. It also enables to wrap existing JavaScript libraries to be used in AngularJS context.\\
+The mapping library Leaflet\footnote{\url{http://leafletjs.com/}} serves as base for displaying base maps and geospatial data. The user-facing web page was developed using tools like CoffeeScript\footnote{\url{http://coffeescript.org/}}, Haml\footnote{\url{http://haml.info/}} and Sass\footnote{\url{http://sass-lang.com/}} to speed up the development. The web page was developed with all major browsers in mind.\\
+On the server side, components were developed using the Ruby on Rails framework with PostgreSQL\footnote{\url{http://www.postgresql.org/}}/PostGIS\footnote{\url{http://postgis.net/}} as data storage. Ruby on Rails, originally a full-stack model-view-controller web framework, is used as a JSON serving application logic. It was chosen because of its maturity and high number of available libraries. Front- and backend of the prototype communicate in REST\footnote{Representational State Transfer}-API\footnote{Application programming interface} like manner. This allows for easily replaceable front- and backend application stacks.\\
+Figure \ref{fig:screenshot} shows the front page of the prototype with an active two way highlight.\\
+Without the extensive use of open source software and code, development would have taken much longer. It is planned to release the source code through github\footnote{\url{https://github.com/ubergesundheit/dialogmap}}.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.9\columnwidth]{images/screenshot}
+    \caption{Screenshot of the front page of \textit{DialogMap} with active highlight of a contribution and spatial feature.}
+    \label{fig:screenshot}
+\end{figure}
+
+\section{Evaluation}
+
+Interviews
+
+Utility evaluation
+
+Types of questions and why chosen
+
+Results
+
+\section{Conclusion}
+
+This work discusses the implementation and quantitative evaluation of an prototype to support public deliberation through spatially enhanced dialogues in a specific context.
+
+\subsection{Future Work}
+Pick up shortcomings emerged during evaluation. Point to solutions. Mention recommendations from interviewers (Geocoder, list of favorites of each user, tasks)
+
+Feature idea: let users upload geodata.
+
+Maybe pick up unimplemented things from literature
+
+Legal implications of running such a website have to be explored.
+
+% \section{Figure and Table Example}
+
+% \begin{figure}[!h]
+% \centering
+% \includegraphics[width=0.9\columnwidth]{Figure1}
+% \caption{With Caption Below, be sure to have a good resolution image
+%   (see item D within the preparation instructions).}
+% \label{fig:figure1}
+% \end{figure}
+
+% \begin{table}
+%   \centering
+%   \begin{tabular}{|c|c|c|}
+%     \hline
+%     \tabhead{Objects} &
+%     \multicolumn{1}{|p{0.3\columnwidth}|}{\centering\tabhead{Caption --- pre-2002}} &
+%     \multicolumn{1}{|p{0.4\columnwidth}|}{\centering\tabhead{Caption --- 2003 and afterwards}} \\
+%     \hline
+%     Tables & Above & Below \\
+%     \hline
+%     Figures & Below & Below \\
+%     \hline
+%   \end{tabular}
+%   \caption{Table captions should be placed below the table.}
+%   \label{tab:table1}
+% \end{table}
+
+
+
+% Balancing columns in a ref list is a bit of a pain because you
+% either use a hack like flushend or balance, or manually insert
+% a column break.  http://www.tex.ac.uk/cgi-bin/texfaq2html?label=balance
+% multicols doesn't work because we're already in two-column mode,
+% and flushend isn't awesome, so I choose balance.  See this
+% for more info: http://cs.brown.edu/system/software/latex/doc/balance.pdf
+%
+% Note that in a perfect world balance wants to be in the first
+% column of the last page.
+%
+% If balance doesn't work for you, you can remove that and
+% hard-code a column break into the bbl file right before you
+% submit:
+%
+% http://stackoverflow.com/questions/2149854/how-to-manually-equalize-columns-
+% in-an-ieee-paper-if-using-bibtex
+%
+% Or, just remove \balance and give up on balancing the last page.
+%
+\newpage
+\balance
+
+% REFERENCES FORMAT
+% References must be the same font size as other body text.
+
+\bibliographystyle{acm-sigchi}
+\bibliography{masterthesis-pape}
+
+%%%%%%%%%%%%% Begin Appendix %%%%%%%%%%%%%
+
+\input{appendix}
+
+\end{document}
