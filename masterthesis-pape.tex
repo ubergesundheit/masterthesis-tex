@@ -1,27 +1,22 @@
 \documentclass{sigchi}
-
 % Arabic page numbers for submission. 
 % Remove this line to eliminate page numbers for the camera ready copy
 \pagenumbering{arabic}
-
 
 % Load basic packages
 \usepackage{balance}  % to better equalize the last page
 \usepackage{graphics} % for EPS, load graphicx instead
 \usepackage{times}    % comment if you want LaTeX's default font
-%\usepackage{url}      % llt: nicely formatted URLs
 \usepackage[hyphens]{url}
 \usepackage{color}
 
 \usepackage{pdflscape}
 \usepackage{longtable}
-% \usepackage{geometry}
 \usepackage[strict]{changepage}
-\usepackage{german}
+\usepackage{ngerman}
 
 \usepackage{xcolor}
 \newcommand\todo[1]{\textcolor{red}{#1}}
-
 
 \usepackage[stretch=10,shrink=10]{microtype}
 
@@ -40,7 +35,6 @@
 \makeatother
 \urlstyle{leo}
 
-
 % To make various LaTeX processors do the right thing with page size.
 \def\pprw{210mm}
 \def\pprh{297mm}
@@ -49,6 +43,9 @@
 \setlength{\paperheight}{\pprh}
 \setlength{\pdfpagewidth}{\pprw}
 \setlength{\pdfpageheight}{\pprh}
+
+% create a shortcut to typeset table headings
+\newcommand\tabhead[1]{\small\textbf{#1}}
 
 % Make sure hyperref comes last of your loaded packages, 
 % to give it a fighting chance of not being over-written, 
@@ -67,9 +64,6 @@ urlcolor=black,
 breaklinks=true,
 }
 
-% create a shortcut to typeset table headings
-\newcommand\tabhead[1]{\small\textbf{#1}}
-
 % End of preamble. Here it comes the document.
 \begin{document}
 
@@ -80,7 +74,7 @@ breaklinks=true,
 \author{
   \alignauthor Gerald Pape\\
     \affaddr{Institute for Geoinformatics}\\
-    \email{g.pape@uni-muenster.de}\\
+    \email{\href{mailto:g.pape@uni-muenster.de}{\nolinkurl{g.pape@uni-muenster.de}}}\\
 }
 
 \maketitle
@@ -91,33 +85,13 @@ breaklinks=true,
 
 %%%%%%%%%%%%% Chapters %%%%%%%%%%%%%
 
-\section{Introduction}
-
-    \input{chapters/introduction} % with Motivation
-
-\section{Related Work}
-
-    \input{chapters/related_work}
-    
-\section{Approach}
-
-    \input{chapters/approach} % General Stuff (stuff taken from literature), Design, Implementation
-    
-\section{Methodology}
-
-    \input{chapters/methodology}
-    
-\section{Evaluation}
-
-    \input{chapters/evaluation} % why Interviews , questions asked and why chosen, Results, self reflection against recommendations in the literature
-    
-\section{Discussion}
-
-    \input{chapters/discussion}
-    
-\section{Conclusion}
-
-    \input{chapters/conclusion} % Pick up on evaluation results, Future Work
+  \input{chapters/introduction}
+  \input{chapters/related_work}
+  \input{chapters/approach}
+  \input{chapters/methodology}
+  \input{chapters/evaluation}
+  \input{chapters/discussion}
+  \input{chapters/conclusion}
 
 %%%%%%%%%%%%% References %%%%%%%%%%%%%
 
@@ -130,6 +104,6 @@ breaklinks=true,
 
 %%%%%%%%%%%%% Appendix %%%%%%%%%%%%%
 
-\input{chapters/appendix}
+  \input{chapters/appendix}
 
 \end{document}
