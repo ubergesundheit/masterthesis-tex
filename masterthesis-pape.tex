@@ -14,6 +14,7 @@
 \usepackage{longtable}
 \usepackage[strict]{changepage}
 \usepackage{ngerman}
+\usepackage{pdfpages}
 
 \usepackage{xcolor}
 \newcommand\todo[1]{\textcolor{red}{#1}}
@@ -45,31 +46,6 @@
 \setlength{\pdfpageheight}{\pprh}
 
 
-%----------------------------------------------------------------------------------------
-%	TITLE PAGE
-%----------------------------------------------------------------------------------------
-
-\newcommand*{\titleTH}{\begingroup % Create the command for including the title page in the document
-% \raggedleft % Right-align all text
-\vspace*{\baselineskip} % Whitespace at the top of the page
-
-{\Large Master Thesis}\\[0.167\textheight] % Author name
-
-% {\LARGE\bfseries The Big Book of}\\[\baselineskip] % First part of the title, if it is unimportant consider making the font size smaller to accentuate the main title
-
-{\Huge Supporting public deliberation\\through spatially enhanced dialogs}\\[\baselineskip] % Main title which draws the focus of the reader
-
-{\Large \textit{Gerald Pape}}\par % Tagline or further description
-
-\vfill % Whitespace between the title block and the publisher
-
-% {\large The Publisher \plogo}\par % Publisher and logo
-
-\vspace*{3\baselineskip} % Whitespace at the bottom of the page
-\endgroup}
-
-
-
 % create a shortcut to typeset table headings
 \newcommand\tabhead[1]{\small\textbf{#1}}
 
@@ -93,6 +69,11 @@ breaklinks=true,
 % End of preamble. Here it comes the document.
 \begin{document}
 
+\input{frontmatter}
+
+\cleardoublepage
+\setcounter{page}{1}
+
 \title{Supporting public deliberation\\through spatially enhanced dialogs}
 \subtitle{Master thesis}
 
@@ -102,8 +83,6 @@ breaklinks=true,
     \affaddr{Institute for Geoinformatics}\\
     \email{\href{mailto:g.pape@uni-muenster.de}{g.pape@uni-muenster.de}}\\
 }
-
-\include{frontmatter}
 
 \maketitle
 
