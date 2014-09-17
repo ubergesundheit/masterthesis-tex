@@ -1,15 +1,16 @@
 \section{Approach}
 \label{chap:approach}
 
-
 As seen in \hyperref[chap:related_work]{section 2}, research features various theoretical frameworks and implementations in the area of argumentation mapping. 
 
-This section introduces the concept of ``DialogMap'' and gives information about the context and background of the developed prototype (sub-section \ref{sub:dialogmap}), describe general concepts of the implemented prototype (sub-section \ref{sub:design}) and lay out implementation details (sub-section \ref{sub:implementation}).
+This section introduces the concept of ``DialogMap'' and gives information about the context and background of the developed prototype (sub-section \ref{sub:dialogmap}), describes general concepts of the implemented prototype (sub-section \ref{sub:design}) and lay out implementation details (sub-section \ref{sub:implementation}).
 
 \subsection{DialogMap}
 \label{sub:dialogmap}
 
-After the exploration of research in PPGIS and Argumentation Mapping,
+In order to serve the idea of supporting public deliberation through spatially enhanced dialogs, the concept of DialogMap was developed. DialogMap is a spatial online discussion platform, which enables its users to make explicit spatial references in their discussion contributions. This is achieved by allowing the interlinking of one or multiple words with a location or area on the map of the application. It is possible to link multiple 
+
+After the exploration of research in PPGIS and Argumentation Mapping, 
 
 Following the concept of Rinner's Argumentation Map \cite{Rinner_ArgumentationMaps}
 
@@ -21,14 +22,15 @@ As seen in X,Y and Z, important aspects of A are\dots
 
 Recommendations for implementing PPGIS \cite{Carver2001_PPGIS_Cyberdemocracy} \cite{Voss2004_Evolution_PGIS}
 
-Scalable bla \cite{Sani2011_Scalable_Argumap}
+
+An important technical aspect of the conception and development of an spatial discussion tool is to plan it flexible enough to be reused for multiple use cases \cite{Kessler 2005_Conflict_Resolution,Kessler 2005_ArgumentationMap_Prototype,Sani2011_Scalable_Argumap}. This was adequately honored through the Model-view-controller pattern in both the backend and frontend. % Another recommendation was, to make the architecture modular, to make the application scalable \cite{Sani2011_Scalable_Argumap} to serve a multitude of users. The chosen application stack for DialogMap allows to run multiple instances 
 
 \subsection{Design} % and features
 \label{sub:design}
 
-Internally, the prototype uses few data models. Contributions contain a title, description, two categories, a tags field, a favored counter, an optional time restriction field for start and ending times, an optional image, an optional reference to a parent contribution and optional references to child contributions. The parent and child contribution references create a simple parent-child connection between contributions, as children inherit the categories, tags, time restriction and title. A contribution serves both as a topic and as response to a topic. A contribution also contains references to features, references to feature references and references to URLs.\\
+Internally, the prototype uses few data models. In the configuration used for this thesis, a contribution contains a title, description, two categories, a tags field, a favored counter, an optional time restriction field for start and ending times, an optional image, an optional reference to a parent contribution and optional references to child contributions. The parent and child contribution references create a simple parent-child connection between contributions, as children inherit the categories, tags, time restriction and title. A contribution serves both as a topic and as response to a topic. A contribution also contains references to features, references to feature references and references to URLs.\\
 Features are geospatial entities with a location, a reference to its contribution and properties for styling\footnote{\url{https://github.com/mapbox/simplestyle-spec}}.\\
-Feature references contain a title, which can differ from the original title of the feature and a reference to a feature. URL references contain hyperlinks and a description of the hyperlink. The description of a contribution contains the text typed by a user with specially encoded references to features, URL references and feature references. Additionally, each contribution stores the ids of the users who favorited it.\\
+Feature references contain a title, which can differ from the original title of the feature and a reference to a feature. URL references contain hyperlinks and a description of the hyperlink. The description of a contribution contains the text typed by a user with specially encoded references to features, URL references and feature references. Additionally, each contribution stores the ids of the users who favored it.\\
 Users can create contributions in the manner of creating topics or writing responses to existing topics. Users have an e-mail address and a name. Figure \ref{fig:data_structure} depicts a generalized data structure diagram.
 
 \begin{figure}[!h]
@@ -50,7 +52,7 @@ Users are able to use either traditional sing-up/sign-in methods or sign-in thro
 \label{sub:implementation}
 \textit{DialogMap} has been implemented as a single-page web application using AngularJS\footnote{\url{http://angularjs.org/}} and Ruby on Rails\footnote{\url{http://rubyonrails.org/}}. The single-page structure was chosen in order to provide the user with a clear navigation between the overview and contribution answers. This also allows for a seamless browsing experience without full reloads of the page. AngularJS is a JavaScript framework with features like templating, two-way binding and DOM manipulation. It follows the model-view-controller pattern in order to bring server side paradigms to client-side development. AngularJS was chosen because of its popularity, extensibility and high number of available libraries. It also enables to wrap existing JavaScript libraries to be used in AngularJS context.\\
 The mapping library Leaflet\footnote{\url{http://leafletjs.com/}} serves as base for displaying base maps and geospatial data. The user-facing web page was developed using tools like CoffeeScript\footnote{\url{http://coffeescript.org/}}, Haml\footnote{\url{http://haml.info/}} and Sass\footnote{\url{http://sass-lang.com/}} to speed up the development. The web page was developed with all major browsers in mind.\\
-On the server side, components were developed using the Ruby on Rails framework with PostgreSQL\footnote{\url{http://www.postgresql.org/}}/PostGIS\footnote{\url{http://postgis.net/}} as data storage. Ruby on Rails, originally a full-stack model-view-controller web framework, is used as a JSON serving application logic. It was chosen because of its maturity and high number of available libraries. Front- and backend of the prototype communicate in REST\footnote{Representational State Transfer}-API\footnote{Application programming interface} like manner. This allows for easily replaceable front- and backend application stacks.\\
+On the server side, components were developed using the Ruby on Rails framework with PostgreSQL\footnote{\url{http://www.postgresql.org/}}/PostGIS\footnote{\url{http://postgis.net/}} as data storage. Ruby on Rails, originally a full-stack model-view-controller web framework, is used as a JSON serving application logic. It was chosen because of its maturity and high number of available libraries. Front- and backend of the prototype communicate in REST-API\footnote{Representational State Transfer Application programming interface} like manner. This allows for easily replaceable front- and backend application stacks.\\
 Figure \ref{fig:screenshot} shows the front page of the prototype with an active two way highlight.\\
 Without the extensive use of open source software and code, development would have taken much longer. It is planned to release the source code through github\footnote{\url{https://github.com/ubergesundheit/dialogmap}}.
 
