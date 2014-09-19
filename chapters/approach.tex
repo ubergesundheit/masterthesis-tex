@@ -16,13 +16,13 @@ DialogMap allows to filter and search for contributions by categories, tags and 
 The importance of an easy user interface was mentioned by many authors \cite{Rinner2009_Web2_argumap,Jankowski2005_community_based_pgis,Tang2005_PPGIS_discussion_forum,zhao2006geodf,you2009_participatory_map_based}. As users are likely non-technical \cite{Cai2009_spatial_annotation_deliberation}, the user interface should not discriminate them, thus suppressing participation \cite{Carver2001_PPGIS_Cyberdemocracy}.\\
 An important technical aspect of the conception and development of an spatial discussion platform is to plan it flexible enough to be reused for multiple use cases \cite{Kessler2005_Conflict_Resolution,Kessler2005_ArgumentationMapPrototype,Sani2011_Scalable_Argumap}. This was adequately honored through the Model-view-controller pattern in both the backend and frontend. Another recommendation was, to make the architecture modular, to make the application scalable \cite{Sani2011_Scalable_Argumap} to serve many users at the same time.
 
-In order to test the initial idea of supporting public deliberation through spatially enhanced dialogues, a working prototype had to be developed. Starting from the concept of DialogMap, a first prototypical application was developed. The development was done in an iterative and agile approach. The creation of working iterations of the DialogMap concept, made early feedback possible. The possibility to evaluate the concept in a real world use case with users of scientific citizen initiatives presented itself early in the development process. The further development was then conducted with with practical advice from members of the scientific citizens' initiative. Their input ranged from general suggestions to opinions of specific features. Thus, the following sections describe the distinct outcome of their input to the developed prototype.
+In order to test the initial idea of supporting public deliberation through spatially enhanced dialogues, a working prototype had to be developed. Starting from the concept of DialogMap, a first prototypical application was developed. The development was done in an iterative and agile approach. The creation of working iterations of the DialogMap concept made early feedback possible. The possibility to evaluate the concept in a real world use case with users of scientific citizen initiatives presented itself early in the development process. The further development was then conducted with with practical advice from members of one scientific citizens' initiative. Their input ranged from general suggestions to opinions of specific features. Thus, the following sections describe the distinct outcome of their input to the developed prototype.
 
 %``Integrated user interface'', ``Structured discussion'', ``Common (Web)mapping functions'', ``Integrated database, many-to-many relationships'', ``Access control, security'' and ``Customization by Provider''. \cite{Kessler2005_ArgumentationMapPrototype}
 
 %Recommendations for implementing PPGIS \cite{Carver2001_PPGIS_Cyberdemocracy} \cite{Voss2004_Evolution_PGIS}
 
-\subsection{Design} % and features
+\subsection{Application Design} % and features
 \label{sub:design}
 
 Internally, the prototype uses few data models. In the configuration used for this thesis, a contribution contains a title, description, two categories, a tags field, a favored counter, an optional time restriction field for start and ending times, an optional image, an optional reference to a parent contribution and optional references to child contributions. The parent and child contribution references create a simple parent-child connection between contributions, as children inherit the categories, tags, time restriction and title. A contribution serves both as a topic and as response to a topic. A contribution also contains references to features, references to feature references and references to URLs.\\
@@ -59,3 +59,5 @@ Without the extensive use of open source software and code, development would ha
     \caption{Screenshot of the front page of \textit{DialogMap} with active highlight of a contribution and spatial feature.}
     \label{fig:screenshot}
 \end{figure}
+
+
