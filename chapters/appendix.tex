@@ -1,6 +1,8 @@
 %start at the next page
 \clearpage
 \newpage
+\setcounter{page}{1}
+\pagenumbering{roman}
 %switch to one column mode
 \onecolumn
 
@@ -23,6 +25,8 @@
 \newpage
 
 \twocolumn
+
+\nobalance
 
 \subsection{Expert Interview Guideline}
   \input{interviews/guideline_expert_interview}
