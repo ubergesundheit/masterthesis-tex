@@ -166,7 +166,8 @@
 \headheight 12pt                % Height of box containing running head.
 \headsep 25pt                   % Space between running head and text.
 
-\textheight 23cm        % [jdf] stick to CHI Formating Guidelines
+%\textheight 23cm        % [jdf] stick to CHI Formating Guidelines
+\textheight 25cm
 \textwidth 18cm         % [jdf] stick to CHI Formating Guidelines
                         % For two-column mode:
 \columnsep 8.5mm        % [jdf] stick to CHI Formating Guidelines
