@@ -1397,7 +1397,7 @@
 \bibsep 2pt \@plus 1pt \@minus 1pt % [jdf] initial spacing between ref entries
 \setcounter{enumi}{1}
 \def\thebibliography#1{%
-    \section{%
+    \section*{%
        {REFERENCES}
         \@mkboth{{\refname}}{{\refname}}%
     }%
