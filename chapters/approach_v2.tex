@@ -73,7 +73,7 @@ Users can create contributions in the manner of creating topics or writing respo
     \label{fig:screenshot}
 \end{figure}
 
-The user interface of the prototype consists of a map with a sidebar (See \hyperref[fig:screenshot]{Figure \ref{fig:screenshot}}). This allows the user to see both spatial and textual representation of contributions at one glance. On the right hand sidebar contains the input form for new contributions, filter options, sorting order selector and the list of contributions. The input form consists of input fields for title, categories, time restriction, image and description. Furthermore, the description field allows the creation of spatial features and URL/feature references through connecting words with spatial representations or URLs (See \hyperref[fig:screenshot_create]{Figure \ref{fig:screenshot_create}}).\\
+The user interface of the prototype consists of a map with a sidebar (See \hyperref[fig:screenshot]{Figure \ref{fig:screenshot}}). This allows the user to see both spatial and textual representation of contributions at one glance. On the right hand side sidebar is the input form for new contributions, filter options, sorting order selector and the list of contributions located. The input form consists of input fields for title, categories, time restriction, image and description. Furthermore, the description field allows the creation of spatial features and URL/feature references through connecting words with spatial representations or URLs (See \hyperref[fig:screenshot_create]{Figure \ref{fig:screenshot_create}}).\\
 A text area for arbitrary text and multiple checkboxes allow to restrict the listed contribution as well as the geo-features displayed in the map. It is also possible to change the sorting order of the list of contribution through a drop down field. \hyperref[fig:screenshot_filter]{Figure \ref{fig:screenshot_filter}} depicts the expanded filter with several checkboxes enabled.
 
 \begin{figure}[!h]
@@ -83,7 +83,6 @@ A text area for arbitrary text and multiple checkboxes allow to restrict the lis
     \label{fig:screenshot_create}
 \end{figure}
 
-
 \begin{figure}[!h]
     \centering
     \includegraphics[width=1\columnwidth]{images/screenshot_expanded}
@@ -91,9 +90,12 @@ A text area for arbitrary text and multiple checkboxes allow to restrict the lis
     \label{fig:screenshot_expanded}
 \end{figure}
 
-
 The list of contributions contains colored rectangles representing the different topics. Each rectangle contains the title, time of writing, name of the author, categories, tags and the amount of times the contribution has been favored by users. It also contains a link, which navigates the user to the replies written to the topic. A click on the contribution rectangle expands it vertically, revealing the description and image of the current topic. This mechanism is implemented as description length can vary between contributions. By hiding description and image by default, even visual heights of the contribution rectangles are ensured. \hyperref[fig:screenshot_filter]{Figure \ref{fig:screenshot_expanded}} depicts an expanded contribution rectangle.\\
-After clicking the ``reply'' link, only the selected topic and replies are shown in the sidebar in a chronological order. In this view, each contribution shows the description by default, as well as author and time and date of writing. The author of the contribution is able to edit and delete the contribution. Upon deletion, the user can enter a reason for deletion, which then will be displayed below the deleted contribution. The deletion is not destructive. The contribution as well as features created for the contribution are marked visually as deleted in order to retain both structure and meaning of the conversation. Other users are able to favor contribution to show interest or agreement.
+After clicking the ``reply'' link, only the selected topic and replies are shown in the sidebar in a chronological order. In this view, each contribution shows the description by default, as well as author and time and date of writing. The author of the contribution is able to edit and delete the contribution. Upon deletion, the user can enter a reason for deletion, which then will be displayed below the deleted contribution. The deletion is not destructive. The contribution as well as features created for the contribution are marked visually as deleted in order to retain both structure and meaning of the conversation. Other users are able to favor contribution to show interest or agreement.\\
+The map view contains a base map and several markers and polygons in different colors and different icons in case of markers. These relate to the contributions and are connected through the references in the description of the contributions. Which spatial features are displayed is determined through the state of the sidebar. In the topics overview, only the features created for the starting contributions are displayed in order to prevent cluttering of the view-port. When only a topic and its replies are displayed in the sidebar, all features related to the topic and its replies are shown on the map.\\
+To emphasize the relationship between a contribution and its spatial features, a two way highlighting has been implemented. Hovering over either a contribution-box, marked word or spatial feature on the map triggers visual highlighting on all related contributions, marked words and spatial features. This allows to quickly grasp the relationship between features and contributions. \hyperref[fig:screenshot]{Figure \ref{fig:screenshot}} shows an active highlighting initiated through a mouseover over a marker.\\
+Users are able to use either traditional sing-up/sign-in methods or sign-in through different social log-in providers to authenticate to the system.
+\todo{Der Abschnitt könnte wirklich gut werden, wenn Du die Bilder etwas stärker referenziert, und Weg vom Auflistungscharakter kommst.. hin zu einem eher flüssig zu lesenden Text. Jetzt ist das eher eine textuelle Featureauflistung. Du bist nah drann das man den Abschnitt gerne list.. und der ist wichtig!}
 
 \begin{figure}[!h]
     \centering
@@ -101,11 +103,6 @@ After clicking the ``reply'' link, only the selected topic and replies are shown
     \caption{\textit{DialogMap} with expanded filter in the sidebar. Switching filter options on and off narrows down displayed markers on the map as well as displayed contributions in the sidebar. An input field allows to filter with arbitrary text.}
     \label{fig:screenshot_filter}
 \end{figure}
-
-The map view contains a base map and several markers and polygons in different colors and different icons in case of markers. These relate to the contributions and are connected through the references in the description of the contributions. Which spatial features are displayed is determined through the state of the sidebar. In the topics overview, only the features created for the starting contributions are displayed in order to prevent cluttering of the view-port. When only a topic and its replies are displayed in the sidebar, all features related to the topic and its replies are shown on the map.\\
-To emphasize the relationship between a contribution and its spatial features, a two way highlighting has been implemented. Hovering over either a contribution-box, marked word or spatial feature on the map triggers visual highlighting on all related contributions, marked words and spatial features. This allows to quickly grasp the relationship between features and contributions. \hyperref[fig:screenshot]{Figure \ref{fig:screenshot}} shows an active highlighting initiated through a mouseover over a marker.\\
-Users are able to use either traditional sing-up/sign-in methods or sign-in through different social log-in providers to authenticate to the system.
-\todo{Der Abschnitt könnte wirklich gut werden, wenn Du die Bilder etwas stärker referenziert, und Weg vom Auflistungscharakter kommst.. hin zu einem eher flüssig zu lesenden Text. Jetzt ist das eher eine textuelle Featureauflistung. Du bist nah drann das man den Abschnitt gerne list.. und der ist wichtig!}
 
 
 \subsection{Implementation}
