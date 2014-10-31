@@ -11,7 +11,7 @@ As seen in \hyperref[chap:related_work]{section \ref{chap:related_work}}, resear
 \centering
 \caption{Main requirements for online spatial discussion platforms derived from research presented in sections \ref{subchap:gis_stuff}, \ref{zweivier} and \ref{zweifuenf}.}
 \label{tab:requirements}
-\begin{tabular}{|p{7cm}|p{7cm}|l|} \hline
+\begin{tabular}{|p{6.57cm}|p{6.57cm}|l|} \hline
 \textbf{Requirement} & \textbf{Impact} & \textbf{Main Sources}\\ \hline
 
 a) Explicit spatial references in discussion contributions \label{req:a} & Clarify denotation of spatial relationships and make communication more efficient & \cite{Rinner_ArgumentationMaps,Cherubini2007_shared_maps}\\ \hline
@@ -40,9 +40,9 @@ The user interface of \textit{DialogMap} features a map and an area to display t
 The importance of an easy user interface was mentioned by multiple authors \cite{Rinner2009_Web2_argumap,Jankowski2005_community_based_pgis,Tang2005_PPGIS_discussion_forum,zhao2006geodf,you2009_participatory_map_based}. As users are likely non-technical \cite{Cai2009_spatial_annotation_deliberation}, the user interface should not discriminate them, thus suppressing participation \cite{Carver2001_PPGIS_Cyberdemocracy}.\\
 \hyperref[tab:requirements]{Table \ref{tab:requirements}} lists the most important requirements along with implications and sources.\\
 The \textit{DialogMap} concept was developed first and foremost to support public participation on a discussion level. \hyperref[fig:my_ladder]{Figure \ref{fig:my_ladder}} shows the theoretical participation level capabilities of \textit{DialogMap} derived from Arnstein and colleagues \cite{Arnstein1969_citizen_participation,Wiedemann1993355,Connor1988_new_ladder}. Like Wiedemann and Femers \cite{Wiedemann1993355}, each level requires the implementation of the previous level. Informing and educating the public is the first step required for citizens to form an opinion. This then allows citizens to contribute information and proposals to the topic. Eventually, if the means for discussing a topic exists, consensus can be reached. Although \textit{DialogMap} does not contain functionalities for establishing a consensus, discussion participants are able to do this manually by writing contributions.\\
-In order to test the initial idea of supporting public deliberation through spatially enhanced dialogs, the development of an online spatial discussion platform prototype was started. The development was done in an iterative and agile approach. Through the creation of working iterations of the \textit{DialogMap} concept, early feedback possible. The possibility to evaluate the concept in a real world use case with users of a citizen initiative started by a university group presented itself early in the development process. The further development was then conducted with practical advice from three members of the citizens initiative started by a university group. Their input ranged from general suggestions to opinions of specific features. Thus, the following sections describe the distinct outcome of their input to the developed prototype.
+In order to test the initial idea of supporting public deliberation through spatially enhanced dialogs, the development of an online spatial discussion platform prototype was started. The development was done in an iterative and agile approach. Through the creation of working iterations of the \textit{DialogMap} concept, early feedback possible. The possibility to evaluate the concept in a real world use case with users of a citizen initiative started by a university group presented itself early in the development process. The further development was then conducted with practical advice from three members of the citizen initiative started by a university group. Their input ranged from general suggestions to opinions of specific features. Thus, the following sections describe the distinct outcome of their input to the developed prototype.
 
-\begin{figure}[!h]
+\begin{figure}[h]
     \centering
     \includegraphics[width=1\columnwidth]{images/my_ladder}
     \caption{Levels of participation of the \textit{DialogMap} concept. The levels are adapted from research of Arnstein and her colleagues. The amount of participation raises from bottom to top. Each consecutive level is established on the level below it.}
@@ -53,50 +53,48 @@ In order to test the initial idea of supporting public deliberation through spat
 \subsection{Application Design}
 \label{sub:design}
 
-\begin{figure}[!h]
+\begin{figure}[h]
     \centering
     \includegraphics[width=1\columnwidth]{images/data_structure}
     \caption{Schema of the underlying data structure of the prototype. Time and id fields are omitted for brevity. \textit{Contributions} reference other \textit{contributions}, spatial \textit{features}, \textit{references}, and \textit{users}. \textit{References} can be either a hyperlink or refer to \textit{features} created in other \textit{contributions}.}
     \label{fig:data_structure}
 \end{figure}
 
-Internally, the prototype uses few data models. In the configuration used for this thesis, a contribution contains a title, description, two categories, a tags field, a favored counter, an optional time restriction field for start and ending times, an optional image, an optional reference to a parent contribution and optional references to child contributions. The parent and child contribution references create a simple parent-child connection between contributions, as children inherit the categories, tags, time restriction and title. A contribution serves both as a start of a topic and as response to a topic. It also contains references to features, references to feature references and references to URLs.\\
-Features are geospatial entities with a location and a reference to its contribution.\\
-Feature references contain a title, which can differ from the original title of the feature and a reference to a feature. URL references contain hyperlinks and a description of the hyperlink. Text typed for the description of a contribution is specially encoded to mark hyperlinks and references. Additionally, each contribution stores the ids of the users who favored it.\\
-Registered users can create contributions in the manner of creating topics or writing responses to existing topics. The required credentials for registering are an e-mail address and a name.\\
-\hyperref[fig:data_structure]{Figure \ref{fig:data_structure}} depicts entities and relations in a generalized data structure diagram.
-
-\begin{figure}[!h]
+\begin{figure}[h]
     \centering
     \includegraphics[width=1\columnwidth]{images/screenshot}
     \caption{Screenshot of the front page of \textit{DialogMap} with active highlight of a contribution and spatial feature. Spatial features are highlighted through a distinct circle. Corresponding contributions are highlighted and scrolled to the top in the sidebar. The highlighting mechanism can be triggered by both pointing on markers and contributions with the mouse pointer.}
     \label{fig:screenshot}
 \end{figure}
 
+Internally, the prototype uses few data models. In the configuration used for this thesis, a contribution contains a title, description, two categories, a tags field, a favored counter, an optional time restriction field for start and ending times, an optional image, an optional reference to a parent contribution and optional references to child contributions. The parent and child contribution references create a simple parent-child connection between contributions, as children inherit the categories, tags, time restriction and title. A contribution serves both as a start of a topic and as response to a topic. It also contains references to features, references to feature references and references to URLs.\\
+Features are geospatial entities with a location and a reference to its contribution.\\
+Feature references contain a title, which can differ from the original title of the feature and a reference to a feature. URL references contain hyperlinks and a description of the hyperlink. Text typed for the description of a contribution is specially encoded to mark hyperlinks and references. Additionally, each contribution stores the ids of the users who favored it.\\
+Registered users can create contributions in the manner of creating topics or writing responses to existing topics. The required credentials for registering are an e-mail address and a name.\\
+\hyperref[fig:data_structure]{Figure \ref{fig:data_structure}} depicts a generalized data structure diagram.\\
 The user interface of the prototype consists of a map with a sidebar (See \hyperref[fig:screenshot]{Figure \ref{fig:screenshot}}). This allows the user to see both spatial and textual representation of contributions at one glance. On the right hand side sidebar is the input form for new contributions, filter options, sorting order selector and the list of contributions located. The input form consists of input fields for title, categories, time restriction, image and description. Furthermore, the description field allows the creation of spatial features and URL/feature references through connecting words with spatial representations or URLs (See \hyperref[fig:screenshot_create]{Figure \ref{fig:screenshot_create}}).\\
-A text area for arbitrary text and multiple checkboxes allow to restrict the listed contribution as well as the geo-features displayed in the map. It is also possible to change the sorting order of the list of contribution through a drop down field. \hyperref[fig:screenshot_filter]{Figure \ref{fig:screenshot_filter}} depicts the expanded filter with several checkboxes enabled.
-
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=1\columnwidth]{images/screenshot_create}
-    \caption{Input form of \textit{DialogMap} for creating a new topic. Here, all input field are populated by the user. The user has created a spatial reference (green in the lowest box in the sidebar) and a hyperlink (blue box in the lowest box). The color as well as the icon of the marker is determined by the selected categories in the selection fields below the title (``Bürgerbrunch 2014'').}
-    \label{fig:screenshot_create}
-\end{figure}
-
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=1\columnwidth]{images/screenshot_expanded}
-    \caption{The \textit{DialogMap} frontpage with an expanded contribution rectangle. Through a click on the contribution rectangle, the description and image (if present) are displayed. Contributions do not show image and description by default to conserve visual space.}
-    \label{fig:screenshot_expanded}
-\end{figure}
-
+A text area for arbitrary text and multiple checkboxes allow to restrict the listed contribution as well as the geo-features displayed in the map. It is also possible to change the sorting order of the list of contribution through a drop down field. \hyperref[fig:screenshot_filter]{Figure \ref{fig:screenshot_filter}} depicts the expanded filter with several checkboxes enabled.\\
 The list of contributions contains colored rectangles representing the different topics. Each rectangle contains the title, time of writing, name of the author, categories, tags and the amount of times the contribution has been favored by users. It also contains a link, which navigates the user to the replies written to the topic. A click on the contribution rectangle expands it vertically, revealing the description and image of the current topic. This mechanism is implemented as description length can vary between contributions. By hiding description and image by default, even visual heights of the contribution rectangles are ensured. \hyperref[fig:screenshot_filter]{Figure \ref{fig:screenshot_expanded}} depicts an expanded contribution rectangle.\\
 After clicking the ``reply'' link, only the selected topic and replies are shown in the sidebar in a chronological order. In this view, each contribution shows the description by default, as well as author and time and date of writing. The author of the contribution is able to edit and delete the contribution. Upon deletion, the user can enter a reason for deletion, which then will be displayed below the deleted contribution. The deletion is not destructive. The contribution as well as features created for the contribution are marked visually as deleted in order to retain both structure and meaning of the conversation. Other users are able to favor contribution to show interest or agreement.\\
 The map view contains a base map and several markers and polygons in different colors and different icons in case of markers. These relate to the contributions and are connected through the references in the description of the contributions. Which spatial features are displayed is determined through the state of the sidebar. In the topics overview, only the features created for the starting contributions are displayed in order to prevent cluttering of the view-port. When only a topic and its replies are displayed in the sidebar, all features related to the topic and its replies are shown on the map.\\
 To emphasize the relationship between a contribution and its spatial features, a two way highlighting has been implemented. Hovering over either a contribution-box, marked word or spatial feature on the map triggers visual highlighting on all related contributions, marked words and spatial features. This allows to quickly grasp the relationship between features and contributions. \hyperref[fig:screenshot]{Figure \ref{fig:screenshot}} shows an active highlighting initiated through a mouseover over a marker.\\
 Users are able to use either traditional sing-up/sign-in methods or sign-in through different social log-in providers to authenticate to the system.
 
-\begin{figure}[!h]
+\begin{figure}[b]
+    \centering
+    \includegraphics[width=1\columnwidth]{images/screenshot_expanded}
+    \caption{The \textit{DialogMap} frontpage with an expanded contribution rectangle. Through a click on the contribution rectangle, the description and image (if present) are displayed. Contributions do not show image and description by default to conserve visual space.}
+    \label{fig:screenshot_expanded}
+\end{figure}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=1\columnwidth]{images/screenshot_create}
+    \caption{Input form of \textit{DialogMap} for creating a new topic. Here, all input field are populated by the user. The user has created a spatial reference (green in the lowest box in the sidebar) and a hyperlink (blue box in the lowest box). The color as well as the icon of the marker is determined by the selected categories in the selection fields below the title (``Bürgerbrunch 2014'').}
+    \label{fig:screenshot_create}
+\end{figure}
+
+\begin{figure}[b]
     \centering
     \includegraphics[width=1\columnwidth]{images/screenshot_filters}
     \caption{\textit{DialogMap} with expanded filter in the sidebar. Switching filter options on and off narrows down displayed markers on the map as well as displayed contributions in the sidebar. An input field allows to filter with arbitrary text.}
