@@ -61,10 +61,10 @@ In order to test the initial idea of supporting public deliberation through spat
 \end{figure}
 
 Internally, the prototype uses few data models. In the configuration used for this thesis, a contribution contains a title, description, two categories, a tags field, a favored counter, an optional time restriction field for start and ending times, an optional image, an optional reference to a parent contribution and optional references to child contributions. The parent and child contribution references create a simple parent-child connection between contributions, as children inherit the categories, tags, time restriction and title. A contribution serves both as a start of a topic and as response to a topic. It also contains references to features, references to feature references and references to URLs.\\
-Features are geospatial entities with a location and a reference to its contribution. \\
-Feature references contain a title, which can differ from the original title of the feature and a reference to a feature. URL references contain hyperlinks and a description of the hyperlink. The description of a contribution contains the text typed by a user with specially encoded references to features, URL references and feature references. Additionally, each contribution stores the ids of the users who favored it.\\
-\hyperref[fig:data_structure]{Figure \ref{fig:data_structure}} depicts a generalized data structure diagram.\\
-Users can create contributions in the manner of creating topics or writing responses to existing topics. Users have an e-mail address and a name. \todo{Alles richtige und wichtige Informationen, aber bitte etwas zusammenhängerende Sätze - das ist arg auflistungsartig bis hier.}
+Features are geospatial entities with a location and a reference to its contribution.\\
+Feature references contain a title, which can differ from the original title of the feature and a reference to a feature. URL references contain hyperlinks and a description of the hyperlink. Text typed for the description of a contribution is specially encoded to mark hyperlinks and references. Additionally, each contribution stores the ids of the users who favored it.\\
+Registered users can create contributions in the manner of creating topics or writing responses to existing topics. The required credentials for registering are an e-mail address and a name.\\
+\hyperref[fig:data_structure]{Figure \ref{fig:data_structure}} depicts entities and relations in a generalized data structure diagram.
 
 \begin{figure}[!h]
     \centering
